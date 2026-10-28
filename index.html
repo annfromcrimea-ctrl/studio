@@ -774,6 +774,26 @@ function renderAll(){
   byId('footerOp').innerHTML=
     `<b>${esc(DATA.name)}</b>${DATA.inn?', ИНН '+esc(DATA.inn):''}${DATA.address?', адрес: '+esc(DATA.address):''}<br>`+
     `По вопросам обработки персональных данных: <a href="mailto:${esc(DATA.email)}">${esc(DATA.email)}</a><br>`+
+    `ВКонтакте: <a href="https://vk.ru/gim223590574?entrypoint=community_page" target="_blank" rel="noopener">написать в сообщения сообщества</a><br>`+
+    `Политика конфиденциальности опубликована ${esc(DATA.publishDate||'—')}. `+
+    `Уведомление об обработке ПД зарегистрировано Роскомнадзором, ${esc(DATA.rknNotice||'№ ____')}.<br><br>`+
+    `<b>Срок хранения ПД:</b> до момента отзыва согласия субъектом.<br>`+
+    `<b>Место хранения:</b> территория Российской Федерации.<br>`+
+    `<b>Обработчики ПД:</b> Яндекс (формы, почта, хранилище), Robokassa (платежи), ВКонтакте, MAX — в рамках договора-оферты.<br>`+
+    `<b>Передача за рубеж:</b> не осуществляется.<br><br>`+
+    `© Студия изучения языков и развития Анны из Крыма, 2026.<br>Пробное занятие — за половину стоимости.`;
+
+function renderAll(){
+  const av=byId('avatar'); av.src=DATA.photo; av.onerror=()=>{av.onerror=null;av.src=FALLBACK;};
+  byId('heroName').textContent=DATA.name||'[ваше имя]';
+  byId('mastLead').textContent=DATA.previewText||'';
+  byId('founderText').textContent=DATA.founderText||'';
+  byId('insideChips').innerHTML=(DATA.insideChips||[]).map(i=>`<span class="chip"><i></i>${esc(i)}</span>`).join('');
+
+  byId('footerOp').innerHTML=
+    `<b>${esc(DATA.name)}</b>${DATA.inn?', ИНН '+esc(DATA.inn):''}${DATA.address?', адрес: '+esc(DATA.address):''}<br>`+
+    `По вопросам обработки персональных данных: <a href="mailto:${esc(DATA.email)}">${esc(DATA.email)}</a><br>`+
+    `ВКонтакте: <a href="https://vk.ru/gim223590574?entrypoint=community_page" target="_blank" rel="noopener">написать в сообщения сообщества</a><br>`+
     `Политика конфиденциальности опубликована ${esc(DATA.publishDate||'—')}. `+
     `Уведомление об обработке ПД зарегистрировано Роскомнадзором, ${esc(DATA.rknNotice||'№ ____')}.<br><br>`+
     `<b>Срок хранения ПД:</b> до момента отзыва согласия субъектом.<br>`+
