@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Студия изучения языков и развития Анны из Крыма</title>
+<meta name="description" content="Spotlight без слёз: подписки для родителей первоклашек. Пособия по английскому. Запись на занятия по иностранным языкам, логопедии и подготовке к школе. Оператор ПД · 152-ФЗ №91-26-057013 от 24.06.2026 №91-26-057013 от 24.06.2026.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='26' cy='32' r='9' fill='%23d6336c'/%3E%3Ccircle cx='38' cy='32' r='9' fill='%23d6336c'/%3E%3Ccircle cx='32' cy='43' r='9' fill='%23c2255c'/%3E%3Cpath d='M32 22c-2-6-8-8-12-6 2 4 6 6 12 6zm0 0c2-6 8-8 12-6-2 4-6 6-12 6z' fill='%237fb069'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Nunito:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fdf9f4; --deep:#7c2d4e; --deep2:#5a1f3a; --ink:#3d2b33; --soft:#7d6b72;
+    --acc:#d6336c; --acc2:#f3a8c4; --sun:#f6c453; --line:#e7d9ce; --green:#7fb069; --red:#d9534f;
+    --disp:'Comfortaa',sans-serif; --body:'Nunito',sans-serif; --mono:'JetBrains Mono',monospace;
+    --r:22px; --shadow:0 14px 34px rgba(90,31,58,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden}
+
+  /* Тетрадный фон: клетка */
+  body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      linear-gradient(rgba(124,45,78,.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(124,45,78,.07) 1px, transparent 1px);
+    background-size:38px 38px;}
+  /* красная линия полей, как в тетради */
+  body::after{content:'';position:fixed;top:0;bottom:0;left:64px;width:2px;background:rgba(217,83,79,.25);z-index:0;pointer-events:none}
+  @media(max-width:720px){body::after{left:34px}}
+
+  /* Плавающие буквы и эмодзи */
+  #floatingBg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+  .floating-item{position:absolute;bottom:-50px;opacity:0;animation:float linear infinite;user-select:none;font-weight:700}
+  @keyframes float{
+    0%{transform:translateY(0) rotate(0deg);opacity:0}
+    10%{opacity:.14}
+    90%{opacity:.14}
+    100%{transform:translateY(-110vh) rotate(360deg);opacity:0}
+  }
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px;position:relative;z-index:2}
+
+  .homebtn{position:fixed;top:20px;left:20px;z-index:60;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;background:#fff;border:1.5px solid var(--line);color:var(--deep);padding:10px 18px;border-radius:999px;cursor:pointer;transition:all .2s;box-shadow:var(--shadow);display:none}
+  .homebtn.show{display:block}
+  .homebtn:hover{background:var(--acc);border-color:var(--acc);color:#fff;transform:translateY(-2px)}
+
+  .admin-trigger{position:fixed;bottom:20px;right:20px;z-index:60;background:rgba(255,255,255,.9);border:1.5px solid var(--line);color:var(--soft);width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:18px;box-shadow:var(--shadow);transition:all .2s;display:grid;place-items:center}
+  .admin-trigger:hover{background:var(--acc);color:#fff;transform:scale(1.1)}
+
+  .masthead{padding:28px 0 18px}
+  .masthead .wrap{display:grid;grid-template-columns:.75fr 1.25fr;gap:36px;align-items:center}
+  .herocard{text-align:center;position:relative}
+  .avatarwrap{position:relative;width:220px;height:220px;margin:0 auto 12px;border-radius:var(--r);overflow:hidden;background:#fff;border:5px solid #fff;box-shadow:var(--shadow)}
+  .avatarwrap::before{content:'';position:absolute;inset:-12px;border-radius:30px;background:linear-gradient(135deg,var(--acc2),var(--acc));opacity:.4;z-index:-1;animation:blob 9s ease-in-out infinite alternate}
+  @keyframes blob{0%{transform:scale(1) rotate(0)}100%{transform:scale(1.05) rotate(3deg)}}
+  .avatarwrap img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+  .herobadge{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--soft);font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:999px;box-shadow:var(--shadow)}
+  .founder{margin-top:10px;font-size:12.5px;color:var(--soft);font-weight:600;line-height:1.6;max-width:280px;margin-left:auto;margin-right:auto}
+  h1{font-family:var(--disp);font-weight:700;font-size:clamp(26px,4vw,42px);line-height:1.15;margin-bottom:12px;color:var(--deep)}
+  h1 .accent-name{color:var(--acc)}
+  .lead{font-size:18px;color:var(--soft);max-width:600px;margin-bottom:14px}
+  .chips{display:flex;flex-wrap:wrap;gap:10px}
+  .chip{font-family:var(--mono);font-size:11.5px;border:1.5px solid var(--line);background:#fff;color:var(--deep);padding:8px 15px;border-radius:999px;display:inline-flex;align-items:center;gap:8px;transition:transform .2s,box-shadow .2s}
+  .chip:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+  .chip i{width:8px;height:8px;border-radius:50%;background:var(--acc)}
+  .chips.inside{margin-top:12px}
+  .chips.inside .chip i{background:var(--green)}
+
+  .block{padding:18px 0;border-bottom:1px solid var(--line)}
+  .blockhead{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+  .blockhead h2{font-family:var(--disp);font-weight:700;font-size:clamp(20px,2.6vw,28px);color:var(--deep)}
+  .blocksub{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--soft)}
+
+  .commgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+  .commcard{background:#fff;border:1.5px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:all .25s}
+  .commcard:hover{transform:translateY(-3px);border-color:var(--acc2)}
+  .comm-preview{width:100%;height:140px;object-fit:cover;display:block;background:#fff;border-bottom:1.5px solid var(--line)}
+  .comm-body{padding:18px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .commhead{display:flex;align-items:center;gap:12px}
+  .commhead b{font-size:15px;color:var(--deep)}
+  .commcard p{font-size:14px;color:var(--soft);font-weight:600;flex:1}
+  .cicon{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-family:var(--mono);font-weight:700;font-size:13px;color:#fff;flex-shrink:0}
+  .commcard:nth-child(odd) .cicon{background:var(--deep)}
+  .commcard:nth-child(even) .cicon{background:var(--acc)}
+  .commfoot{display:flex;align-items:flex-end;justify-content:space-between;gap:10px}
+  .qrwrap{text-align:center;flex-shrink:0}
+  .qrimg{width:74px;height:74px;border:1.5px solid var(--line);border-radius:10px;background:#fff;padding:4px;object-fit:contain;display:block}
+  .qrwrap span{display:block;font-family:var(--mono);font-size:9px;color:var(--soft);margin-top:4px}
+  .lockhint{font-family:var(--mono);font-size:11px;color:var(--soft);background:var(--bg);border:1.5px dashed var(--line);border-radius:999px;padding:8px 14px;display:inline-block;align-self:flex-start}
+
+  .teamgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+  .teacher{background:#fff;border:1.5px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:all .25s}
+  .teacher:hover{transform:translateY(-4px);border-color:var(--acc2)}
+  .timg{width:100%;height:220px;object-fit:cover;object-position:center top;display:block;border-bottom:1.5px solid var(--line);background:#fff}
+  .tbody{padding:18px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .trole{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc)}
+  .tname{font-family:var(--disp);font-weight:700;font-size:17px;color:var(--deep)}
+  .tdesc{font-size:13.5px;color:var(--soft);font-weight:600;flex:1}
+  .ttags{display:flex;flex-wrap:wrap;gap:6px}
+  .ttag{font-family:var(--mono);font-size:10px;background:var(--bg);border:1px solid var(--line);color:var(--deep);padding:4px 10px;border-radius:999px}
+  button.passgo{border:none;cursor:pointer;width:100%}
+
+  .doclist{display:flex;flex-direction:column;gap:8px}
+  .docrow{display:grid;grid-template-columns:44px 1fr auto auto;gap:14px;align-items:center;background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:12px 18px;transition:all .25s}
+  .docrow:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--acc2)}
+  .docnum{width:40px;height:40px;border-radius:12px;background:var(--bg);color:var(--acc);font-family:var(--mono);font-weight:700;display:grid;place-items:center;font-size:12px}
+  .docname{font-size:15.5px;font-weight:800;color:var(--deep)}
+  .docname small{display:block;font-weight:600;font-family:var(--mono);font-size:10.5px;color:var(--soft);margin-top:2px}
+  .docopen{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--acc);text-decoration:none;border:1.5px solid var(--acc);padding:8px 14px;border-radius:999px;transition:all .2s;white-space:nowrap}
+  .docopen:hover{background:var(--acc);color:#fff}
+  .doccheck{display:flex;align-items:center;gap:10px;cursor:pointer;font-family:var(--mono);font-size:10.5px;text-transform:uppercase;color:var(--soft);user-select:none;white-space:nowrap}
+  .doccheck input{display:none}
+  .box{width:24px;height:24px;border:2px solid var(--line);background:#fff;border-radius:8px;flex-shrink:0;display:grid;place-items:center;font-size:14px;color:#fff;transition:all .25s cubic-bezier(.65,0,.35,1)}
+  .doccheck input:checked + .box{background:var(--green);border-color:var(--green);transform:rotate(-6deg) scale(1.1)}
+  .doccheck input:checked + .box::after{content:'✓';font-weight:700}
+  .docrow.read .docnum{background:var(--green);color:#fff}
+  .docnote{margin-top:10px;font-family:var(--mono);font-size:12px;color:var(--soft)}
+  .docnote b{color:var(--acc)}
+
+  .consentcard{background:#fff;border:1.5px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:18px;margin-top:10px;overflow:hidden}
+  .consent-lead{font-size:14px;color:var(--soft);font-weight:600;margin-bottom:12px;line-height:1.7}
+  .consent-lead b{color:var(--deep)}
+  .iframe-wrap{position:relative;background:var(--bg);border-radius:16px;padding:8px;margin-bottom:12px;border:1.5px dashed var(--acc2)}
+  .iframe-wrap iframe{width:100%;min-height:540px;border:none;display:block;border-radius:10px;background:#fff}
+  .iframe-fallback{display:none;margin-top:12px;padding:18px;background:rgba(214,51,108,.06);border:1.5px solid var(--acc2);border-radius:16px;text-align:center}
+  .iframe-fallback.show{display:block}
+  .iframe-fallback p{font-size:14px;color:var(--soft);margin-bottom:12px;font-weight:600}
+  .iframe-fallback a{display:inline-block;font-family:var(--mono);font-size:13px;font-weight:700;color:#fff;background:var(--acc);padding:13px 26px;border-radius:999px;text-decoration:none;box-shadow:0 8px 20px rgba(214,51,108,.35)}
+  .iframe-fallback a:hover{background:var(--deep)}
+  .iframe-locked{position:relative}
+  .iframe-locked::after{content:'🔒 Отметьте документы выше, чтобы открыть форму';
+    position:absolute;inset:0;background:rgba(253,249,244,.92);display:grid;place-items:center;
+    font-family:var(--mono);font-size:13px;color:var(--deep);text-align:center;padding:20px;border-radius:16px;font-weight:700;z-index:2}
+  .iframe-locked iframe{pointer-events:none;filter:blur(4px) grayscale(.5);opacity:.4}
+  .submitbtn{font-family:var(--disp);font-weight:700;font-size:15px;background:var(--acc);color:#fff;border:none;padding:17px 34px;border-radius:999px;cursor:pointer;width:100%;transition:all .25s;box-shadow:0 8px 24px rgba(214,51,108,.4)}
+  .submitbtn:hover{background:var(--deep);transform:translateY(-2px);box-shadow:0 12px 28px rgba(90,31,58,.35)}
+  .formerr{display:none;margin-top:12px;font-family:var(--mono);font-size:12px;color:var(--red)}
+  .formerr.show{display:block}
+  .codebox{margin-top:12px;padding:16px;border:1.5px dashed var(--acc2);border-radius:16px;background:var(--bg)}
+  .codebox p{font-size:13px;color:var(--soft);font-weight:600;margin-bottom:10px}
+  .codebox input{width:100%;padding:12px 14px;font-family:var(--mono);font-size:14px;border:1.5px solid var(--line);border-radius:12px;background:#fff;margin-bottom:10px}
+  .codebox input:focus{outline:none;border-color:var(--acc)}
+  .ghostbtn{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;border:1.5px solid var(--acc);background:none;color:var(--acc);padding:12px 20px;border-radius:999px;cursor:pointer;text-decoration:none;display:inline-block;transition:all .2s;font-weight:700}
+  .ghostbtn:hover{background:var(--acc);color:#fff}
+  .regline{display:none;align-items:center;gap:8px;background:rgba(127,176,105,.14);color:#5a8a4a;border:1.5px solid rgba(127,176,105,.5);border-radius:999px;padding:9px 20px;font-family:var(--mono);font-size:12px;font-weight:700;margin-bottom:14px}
+
+  .bigbanner{display:flex;align-items:center;gap:20px;padding:26px 30px;border-radius:var(--r);text-decoration:none;margin-top:12px;transition:transform .25s;cursor:pointer;position:relative;overflow:hidden}
+  .bigbanner:hover{transform:translateY(-4px)}
+  .bigbanner .bb-emoji{font-size:36px;flex-shrink:0}
+  .bigbanner b{font-family:var(--disp);font-weight:700;font-size:19px;display:block;color:#fff;margin-bottom:4px}
+  .bigbanner .bb-left{font-size:14.5px;color:rgba(255,255,255,.9);font-weight:600;flex:1}
+  .bb-btn{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;background:#fff;color:var(--deep);padding:13px 24px;border-radius:999px;flex-shrink:0;transition:all .2s;font-weight:700}
+  .bigbanner:hover .bb-btn{transform:scale(1.06)}
+  .bookban{background:linear-gradient(135deg,#16324f,#2f5d94);box-shadow:0 16px 40px rgba(22,50,79,.25);border:2px solid #fff}
+  .bookban .bb-btn{background:var(--sun);color:var(--deep2)}
+  .bookban:hover .bb-btn{background:#fff;color:var(--deep);transform:scale(1.06)}
+  @media(max-width:640px){.bigbanner{flex-direction:column;align-items:flex-start;gap:12px}}
+
+  .shopgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+  .product{background:#fff;border:1.5px solid var(--line);border-radius:var(--r);display:flex;flex-direction:column;overflow:hidden;transition:all .25s;position:relative}
+  .product:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--acc2)}
+  .pimg{width:100%;height:160px;object-fit:cover;display:block;background:#fff;border-bottom:1.5px solid var(--line)}
+  .product .price{position:absolute;top:14px;right:14px;background:var(--sun);color:var(--deep);font-family:var(--mono);font-weight:700;font-size:12px;padding:6px 13px;border-radius:999px;z-index:2}
+  .product .sub{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px;margin-bottom:10px;font-weight:700;align-self:flex-start}
+  .product .sub.type-sub{background:rgba(214,51,108,.12);color:var(--acc)}
+  .product .sub.type-guide{background:rgba(124,45,78,.10);color:var(--deep)}
+  .product .sub.type-craft{background:rgba(124,45,78,.16);color:var(--deep);border:1.5px solid rgba(124,45,78,.25)}
+  .product .pbody{padding:20px;flex:1;display:flex;flex-direction:column}
+  .product h5{font-family:var(--disp);font-weight:700;font-size:17px;color:var(--deep);margin-bottom:8px}
+  .product .pdesc{font-size:14px;color:var(--soft);font-weight:600;flex:1;margin-bottom:10px}
+  .product .pdesc ul{list-style:none;margin-top:8px}
+  .product .pdesc li{padding:2px 0 2px 18px;position:relative;font-size:13.5px}
+  .product .pdesc li::before{content:'🌿';position:absolute;left:0;font-size:11px}
+  .product .pfoot{font-family:var(--mono);font-size:11px;color:var(--soft);margin:8px 0 12px;line-height:1.55}
+  .passgo{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--deep);text-decoration:none;background:var(--sun);padding:12px 18px;border-radius:999px;transition:all .2s;font-weight:700}
+  .passgo:hover{background:var(--acc);color:#fff}
+  .shopnote{margin-top:22px;font-size:13.5px;color:var(--soft);font-weight:600}
+  .shopnote a{color:var(--acc)}
+
+  .booksec{padding:20px 0 60px}
+  .pauseplate{display:none;background:linear-gradient(135deg,var(--sun),#f6a05c);color:var(--deep2);border-radius:var(--r);padding:18px 24px;font-weight:800;font-family:var(--disp);font-size:16px;box-shadow:var(--shadow);margin-bottom:18px;text-align:center}
+  .bookgrid{display:grid;grid-template-columns:1.25fr .75fr;gap:18px;align-items:start}
+  .formcard{background:#fff;border:1.5px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:24px 22px;position:relative}
+  .formhint{margin-top:14px;font-family:var(--mono);font-size:11px;color:var(--soft);line-height:1.7}
+  .pause-emoji{font-size:40px;margin-bottom:10px}
+  .pause-title{color:var(--deep);font-size:18px;font-family:var(--disp);font-weight:700}
+  .pause-text{margin:12px 0 16px;color:var(--soft);font-weight:600;line-height:1.7}
+  .pause-btns{display:flex;flex-direction:column;gap:10px}
+  .bookaside{display:flex;flex-direction:column;gap:12px}
+  .aside-card{background:#fff;border:1.5px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:18px 20px}
+  .aside-card h4{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin-bottom:10px}
+  .aside-card ul{list-style:none}
+  .aside-card li{padding:7px 0 7px 24px;position:relative;font-size:14px;font-weight:600;color:var(--soft);border-bottom:1px dashed var(--line)}
+  .aside-card li:last-child{border-bottom:none}
+  .aside-card li::before{content:'🌿';position:absolute;left:0;font-size:13px}
+  .aside-card.docs li a{color:var(--acc);font-weight:700;text-decoration:none}
+  .aside-card.docs li a:hover{text-decoration:underline}
+  .aside-card.quote{background:linear-gradient(135deg,var(--deep),#a62b60);border:none;color:#f7e8ee}
+  .aside-card.quote p{font-size:15px;font-style:italic;line-height:1.6;margin-bottom:8px}
+  .aside-card.quote small{font-family:var(--mono);font-size:11px;color:#e3c3d0}
+  .confirm{display:none;max-width:680px}
+  .confirm.show{display:block;animation:fadeup .7s cubic-bezier(.22,1,.36,1)}
+  @keyframes fadeup{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+  .record{background:#fff;border:1.5px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:24px 28px;position:relative;margin-bottom:18px;max-width:560px}
+  .record h4{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px;color:var(--deep)}
+  .recrow{display:flex;justify-content:space-between;gap:16px;padding:8px 0;border-bottom:1px dashed var(--line);font-size:15px;font-weight:700}
+  .recrow span:first-child{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--soft);padding-top:3px;flex-shrink:0;font-weight:400}
+  .recrow span:last-child{text-align:right}
+  .stampmark{position:absolute;top:-22px;right:24px;transform:rotate(-6deg);border:3px solid var(--green);color:#5a8a4a;padding:9px 18px;border-radius:12px;font-family:var(--mono);font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;background:rgba(255,255,255,.9)}
+  .stampmark.slam{animation:slam .55s cubic-bezier(.2,2.2,.4,1)}
+  @keyframes slam{0%{transform:rotate(4deg) scale(2.6);opacity:0}60%{transform:rotate(-9deg) scale(.94);opacity:1}100%{transform:rotate(-6deg) scale(1)}}
+  .confirmbtns{display:flex;gap:14px;flex-wrap:wrap}
+
+  .cookie{position:fixed;left:20px;bottom:20px;right:20px;z-index:80;max-width:400px;margin:0 auto;background:#fff;border:1.5px solid var(--acc2);border-radius:18px;box-shadow:0 18px 40px rgba(90,31,58,.25);padding:18px 20px;display:none;animation:fadeup .5s}
+  .cookie.show{display:block}
+  .cookie p{font-size:13px;color:var(--soft);font-weight:600;margin-bottom:12px}
+  .cookie a{color:var(--acc)}
+  .cookiebtns{display:flex;gap:10px}
+  .cookiebtn{font-family:var(--mono);font-size:11px;background:var(--acc);color:#fff;border:none;padding:9px 16px;border-radius:999px;cursor:pointer;font-weight:700}
+  @media(min-width:720px){.cookie{right:auto;margin:0}}
+
+  footer{background:var(--deep2);color:#e3c3d0;padding:30px 0 26px}
+  footer .wrap{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:28px}
+  footer h5{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#fff;margin-bottom:10px}
+  footer p{font-size:14px;line-height:1.7;font-weight:600}
+  footer a{color:var(--acc2);text-decoration:none;display:inline-block;margin-bottom:6px}
+  footer a:hover{color:#fff;text-decoration:underline}
+  .resetbtn{background:none;border:1px dashed #a05c7a;color:#c98ba4;font-family:var(--mono);font-size:10.5px;padding:8px 14px;border-radius:999px;cursor:pointer;margin-top:14px;transition:all .2s}
+  .resetbtn:hover{color:#fff;border-color:#fff}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
+  .reveal.vis{opacity:1;transform:none}
+
+  .modal-overlay{position:fixed;inset:0;background:rgba(90,31,58,.55);backdrop-filter:blur(6px);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+  .modal-overlay.show{display:flex;animation:fadeup .3s}
+  .modal{background:#fff;border-radius:var(--r);box-shadow:0 30px 80px rgba(90,31,58,.4);width:100%;max-width:780px;max-height:90vh;overflow:hidden;display:flex;flex-direction:column}
+  .modal-head{background:var(--deep);color:#fff;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .modal-head h3{font-family:var(--disp);font-weight:700;font-size:19px}
+  .modal-close{background:rgba(255,255,255,.15);color:#fff;width:36px;height:36px;border:none;border-radius:50%;cursor:pointer;font-size:18px;font-weight:700;display:grid;place-items:center;transition:all .2s}
+  .modal-close:hover{background:var(--acc)}
+  .modal-body{padding:20px 24px;overflow-y:auto;flex:1}
+  .tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;border-bottom:1.5px solid var(--line);padding-bottom:10px}
+  .tab{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;border:1.5px solid var(--line);border-radius:999px;background:#fff;color:var(--soft);cursor:pointer;transition:all .2s;font-weight:700}
+  .tab:hover{border-color:var(--acc2)}
+  .tab.active{background:var(--acc);border-color:var(--acc);color:#fff}
+  .tab-content{display:none}
+  .tab-content.active{display:block;animation:fadeup .3s}
+  .admin-field{margin-bottom:12px}
+  .admin-field label{display:block;font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--deep);margin-bottom:5px;font-weight:700}
+  .admin-field input,.admin-field textarea,.admin-field select{width:100%;padding:10px 14px;font-family:var(--body);font-size:14px;border:1.5px solid var(--line);border-radius:12px;background:#fff;transition:border-color .2s}
+  .admin-field input:focus,.admin-field textarea:focus,.admin-field select:focus{outline:none;border-color:var(--acc)}
+  .admin-field textarea{resize:vertical;min-height:70px;font-family:var(--body)}
+  .admin-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .admin-btn{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:11px 20px;border-radius:999px;cursor:pointer;transition:all .2s;font-weight:700;border:1.5px solid var(--acc);background:var(--acc);color:#fff;display:inline-flex;align-items:center;gap:8px}
+  .admin-btn:hover{background:var(--deep);border-color:var(--deep)}
+  .admin-btn.secondary{background:#fff;color:var(--deep)}
+  .admin-btn.secondary:hover{background:var(--acc);color:#fff;border-color:var(--acc)}
+  .admin-btn.danger{background:var(--red);border-color:var(--red)}
+  .admin-btn.danger:hover{background:#a33;border-color:#a33}
+  .admin-btn.sm{font-size:10.5px;padding:7px 12px}
+  .admin-list{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+  .admin-item{background:var(--bg);border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .admin-item b{font-size:14px;color:var(--deep)}
+  .admin-item small{display:block;font-family:var(--mono);font-size:10.5px;color:var(--soft);margin-top:3px}
+  .admin-item-actions{display:flex;gap:6px;flex-shrink:0}
+  .status-row{display:flex;align-items:center;gap:14px;padding:14px;background:var(--bg);border-radius:14px;margin-bottom:14px}
+  .status-row b{font-size:14px;color:var(--deep);flex:1}
+  .status-pill{font-family:var(--mono);font-size:10.5px;padding:5px 12px;border-radius:999px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+  .status-pill.on{background:rgba(127,176,105,.18);color:#4a8a3a}
+  .status-pill.off{background:rgba(217,83,79,.16);color:var(--red)}
+  .admin-login{max-width:400px}
+  .admin-login-error{display:none;margin-top:10px;font-family:var(--mono);font-size:11.5px;color:var(--red);text-align:center}
+  .admin-login-error.show{display:block}
+
+  @media(max-width:860px){
+    .masthead .wrap{grid-template-columns:1fr;gap:26px}
+    .docrow{grid-template-columns:1fr auto;gap:12px}
+    .docnum{display:none}
+    footer .wrap{grid-template-columns:1fr}
+    .iframe-wrap iframe{min-height:460px}
+    .bookgrid{grid-template-columns:1fr}
+    .homebtn{top:14px;left:14px;font-size:10.5px;padding:8px 14px}
+    .admin-row{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<div id="floatingBg"></div>
+
+<button type="button" class="homebtn" id="floatingHomeBtn">← Вернуться на главную</button>
+<button type="button" class="admin-trigger" id="adminTrigger" title="Админ-панель">⚙️</button>
+
+<div id="view-main">
+  <header class="masthead">
+    <div class="wrap">
+      <div class="herocard reveal">
+        <div class="avatarwrap"><img id="avatar" alt="Фото оператора"></div>
+        <span class="herobadge">Оператор ПД · 152-ФЗ №91-26-057013 от 24.06.2026</span>
+        <p class="founder" id="founderText"></p>
+      </div>
+      <div>
+        <h1>Привет! Я — <span class="accent-name" id="heroName"></span></h1>
+        <p class="lead" id="mastLead"></p>
+        <div class="chips">
+          <span class="chip"><i></i>сообщества и материалы</span>
+          <span class="chip"><i></i>всё официально</span>
+        </div>
+        <div class="chips inside" id="insideChips"></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="block" id="commSection">
+    <div class="wrap">
+      <div class="blockhead reveal">
+        <h2>Мои сообщества</h2>
+      </div>
+      <div class="commgrid reveal" id="commgrid"></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="blockhead reveal">
+        <h2>Материалы и пособия</h2>
+      </div>
+      <div class="shopgrid reveal" id="shopgrid"></div>
+      <p class="shopnote" id="shopNote"></p>
+    </div>
+  </section>
+
+  <section class="block" id="teamSection" style="display:none">
+    <div class="wrap">
+      <div class="blockhead">
+        <h2>Наши преподаватели</h2>
+      </div>
+      <div class="teamgrid" id="teamgrid"></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="blockhead reveal">
+        <h2>Документы и согласие</h2>
+        <span class="blocksub">это займёт пару минут: прочитайте документы, заполните форму, введите код — и всё откроется</span>
+      </div>
+      <div class="doclist reveal" id="doclist"></div>
+      <div class="docnote" id="docnote"></div>
+
+      <div class="consentcard reveal">
+        <p class="consent-lead"><b>Почему нужна форма?</b> По закону «О персональных данных» (152-ФЗ) я могу открыть
+        вам доступ к закрытым материалам только после вашего официального согласия. Форма фиксирует это согласие
+        с датой и номером — так ваши данные защищены, а я работаю законно. Это забота о вас, а не бюрократия.</p>
+        <div class="iframe-wrap iframe-locked" id="iframeWrap">
+          <script src="https://forms.yandex.ru/_static/embed.js"></script>
+          <iframe src="https://forms.yandex.ru/u/6a99a8eb02848f4e726049e7?iframe=1" frameborder="0" name="ya-form-6a99a8eb02848f4e726049e7" width="650" id="consentIframe"></iframe>
+        </div>
+        <div class="iframe-fallback" id="consentFallback">
+          <p>Форма не встроилась (так бывает при открытии с компьютера).<br>Откройте её в новой вкладке, отправьте — и вернитесь:</p>
+          <a href="https://forms.yandex.ru/u/6a99a8eb02848f4e726049e7" target="_blank" rel="noopener">Открыть форму согласия ↗</a>
+        </div>
+        <button type="button" class="submitbtn" id="submitbtn">Я отправил(а) форму — ввести код доступа →</button>
+        <div class="formerr" id="formerr"></div>
+        <div class="codebox" id="codebox" style="display:none">
+          <p>На странице «Спасибо» после отправки формы показан <b>код доступа</b>. Введите его:</p>
+          <input id="codeinput" placeholder="Код доступа" autocomplete="off">
+          <button class="ghostbtn" id="codebtn">Открыть доступ</button>
+          <div class="formerr" id="codeerr"></div>
+        </div>
+        <div class="formhint">Код приходит только после реальной отправки формы — так доступ получают только те, кто дал согласие.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="accessSection" style="display:none">
+    <div class="wrap">
+      <div class="blockhead">
+        <h2>Ваш доступ открыт 🎉</h2>
+      </div>
+      <div class="regline" id="regline"></div>
+      <div class="blockhead" style="margin-top:8px">
+        <h2 style="font-size:18px">Подписки и копилка</h2>
+      </div>
+      <div class="shopgrid" id="subgrid"></div>
+      <p class="shopnote" id="subNote"></p>
+    </div>
+  </section>
+
+  <section class="block" style="border-bottom:none">
+    <div class="wrap">
+      <a class="bigbanner bookban" id="bookBanner" href="#запись">
+        <span class="bb-emoji">🗓️</span>
+        <span class="bb-left"><b>Запись на занятия</b>Иностранные языки, логопедия, психолог, подготовка к школе.</span>
+        <span class="bb-btn">Подробнее →</span>
+      </a>
+    </div>
+  </section>
+</div>
+
+<div id="view-book" style="display:none">
+  <header class="masthead">
+    <div class="wrap" style="grid-template-columns:1fr">
+      <div>
+        <div class="overline" style="font-size:11px">Запись на занятия</div>
+        <h1>Запись <span class="accent-name">на занятия</span></h1>
+        <p class="lead" id="bookLead" style="max-width:860px"></p>
+      </div>
+    </div>
+  </header>
+  <main class="booksec">
+    <div class="wrap">
+      <div class="pauseplate" id="pausePlate"></div>
+      <div class="bookgrid">
+        <div class="formcard" id="bookcard">
+          <div style="font-size:15px;color:var(--soft);line-height:1.7;margin-bottom:16px;font-weight:600">
+            <b style="color:var(--deep)">Заполните форму записи</b> прямо здесь. Выберите занятие, дату и время,
+            заполните контакты и отправьте. Я свяжусь с вами для подтверждения.
+          </div>
+          <div class="iframe-wrap">
+            <script src="https://forms.yandex.ru/_static/embed.js"></script>
+            <iframe src="https://forms.yandex.ru/u/69ce6b5a6d2d732e6c4b55f8?iframe=1" frameborder="0" name="ya-form-69ce6b5a6d2d732e6c4b55f8" width="650" id="bookIframe"></iframe>
+          </div>
+          <div class="iframe-fallback" id="bookFallback">
+            <p>Форма не встроилась (так бывает при открытии с компьютера).<br>Откройте её в новой вкладке и отправьте заявку:</p>
+            <a href="https://forms.yandex.ru/u/69ce6b5a6d2d732e6c4b55f8" target="_blank" rel="noopener">Открыть форму записи ↗</a>
+          </div>
+          <button type="button" class="submitbtn" id="bkbtn">Я отправил(а) заявку</button>
+          <div class="formhint">Заявка попадает в журнал оператора (Яндекс Таблица) с датой и временем отправки.</div>
+        </div>
+
+        <div class="formcard" id="pauseCard" style="display:none">
+          <div class="pause-emoji">🧶</div>
+          <div class="pause-title">Набор временно приостановлен</div>
+          <p class="pause-text">Но у меня много интересного! Загляните в материалы и пособия, подпишитесь
+          на сообщества — там новости, разборы и полезные материалы, а ещё загляните в рукодельную копилку.</p>
+          <div class="pause-btns">
+            <button type="button" class="submitbtn" id="goShop">📚 Смотреть материалы</button>
+            <button type="button" class="ghostbtn" id="goComm" style="text-align:center">💬 Мои сообщества</button>
+          </div>
+        </div>
+
+        <aside class="bookaside reveal">
+          <div class="aside-card docs">
+            <h4>Документы для ознакомления</h4>
+            <ul id="bookDocsList"></ul>
+          </div>
+          <div class="aside-card">
+            <h4>Как проходит занятие</h4>
+            <ul id="lessonList"></ul>
+          </div>
+          <div class="aside-card">
+            <h4>Важно знать</h4>
+            <ul id="importantList"></ul>
+          </div>
+          <div class="aside-card quote">
+            <p id="quoteText"></p>
+            <small>— Анна, преподаватель</small>
+          </div>
+        </aside>
+      </div>
+
+      <div class="confirm" id="confirm">
+        <div class="record">
+          <div class="stampmark" id="bstamp">Заявка принята</div>
+          <h4>Ваша запись зарегистрирована</h4>
+          <div class="recrow"><span>№ заявки</span><span id="brecNo">—</span></div>
+          <div class="recrow"><span>Дата и время</span><span id="brecWhen">—</span></div>
+          <div class="recrow"><span>Статус</span><span style="color:var(--acc)">ОЖИДАЕТ ПОДТВЕРЖДЕНИЯ</span></div>
+        </div>
+        <p style="margin-bottom:20px;color:var(--soft);font-weight:600">Свяжусь с вами для подтверждения. Если планы изменятся — просто напишите мне.</p>
+        <div class="confirmbtns">
+          <button class="ghostbtn" id="againbtn">Записать ещё одного</button>
+          <button class="ghostbtn" id="tomainbtn">← На главную</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- АДМИНКА: ВХОД -->
+<div class="modal-overlay" id="adminLoginModal">
+  <div class="modal admin-login">
+    <div class="modal-head">
+      <h3>🔐 Вход в админ-панель</h3>
+      <button class="modal-close" data-close="adminLoginModal">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="admin-field">
+        <label>Код администратора</label>
+        <input type="password" id="adminCodeInput" placeholder="Введите код..." autocomplete="off">
+      </div>
+      <button class="admin-btn" id="adminLoginBtn" style="width:100%;justify-content:center">Войти →</button>
+      <div class="admin-login-error" id="adminLoginError">Неверный код. Попробуйте ещё раз.</div>
+    </div>
+  </div>
+</div>
+
+<!-- АДМИНКА: ПАНЕЛЬ -->
+<div class="modal-overlay" id="adminPanelModal">
+  <div class="modal">
+    <div class="modal-head">
+      <h3>⚙️ Админ-панель студии</h3>
+      <button class="modal-close" data-close="adminPanelModal">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="tabs" id="adminTabs">
+        <button class="tab active" data-tab="tab-teachers">Преподаватели</button>
+        <button class="tab" data-tab="tab-enrollment">Запись</button>
+        <button class="tab" data-tab="tab-communities">Сообщества</button>
+        <button class="tab" data-tab="tab-products">Продукты</button>
+        <button class="tab" data-tab="tab-settings">Настройки</button>
+      </div>
+
+      <div class="tab-content active" id="tab-teachers">
+        <h4 style="font-family:var(--disp);color:var(--deep);margin-bottom:12px">Преподаватели</h4>
+        <div class="admin-row">
+          <div class="admin-field"><label>Имя</label><input id="tName"></div>
+          <div class="admin-field"><label>Роль</label><input id="tRole" placeholder="Преподаватель английского"></div>
+        </div>
+        <div class="admin-field"><label>Описание</label><textarea id="tDesc"></textarea></div>
+        <div class="admin-row">
+          <div class="admin-field"><label>Фото (имя файла)</label><input id="tPhoto" placeholder="teacher.jpg"></div>
+          <div class="admin-field"><label>Направления (через запятую)</label><input id="tTags" placeholder="Английский, Испанский"></div>
+        </div>
+        <input type="hidden" id="tEditId">
+        <div style="display:flex;gap:10px;margin-top:10px">
+          <button class="admin-btn" id="tSave">💾 Сохранить</button>
+          <button class="admin-btn secondary" id="tCancel">Отменить</button>
+        </div>
+        <div class="admin-list" id="tList"></div>
+      </div>
+
+      <div class="tab-content" id="tab-enrollment">
+        <h4 style="font-family:var(--disp);color:var(--deep);margin-bottom:12px">Статус набора</h4>
+        <div class="status-row">
+          <b>Набор на занятия</b>
+          <span class="status-pill" id="enrollPill">—</span>
+          <button class="admin-btn sm" id="enrollToggle">Переключить</button>
+        </div>
+        <div class="admin-field">
+          <label>Текст плашки (если набор закрыт)</label>
+          <textarea id="pauseText"></textarea>
+        </div>
+        <button class="admin-btn" id="pauseSave">💾 Сохранить текст</button>
+      </div>
+
+      <div class="tab-content" id="tab-communities">
+        <h4 style="font-family:var(--disp);color:var(--deep);margin-bottom:12px">Сообщества</h4>
+        <div class="admin-row">
+          <div class="admin-field"><label>Значок (2-3 буквы)</label><input id="cIcon" placeholder="VK"></div>
+          <div class="admin-field"><label>Название</label><input id="cName"></div>
+        </div>
+        <div class="admin-field"><label>Описание</label><textarea id="cDesc"></textarea></div>
+        <div class="admin-row">
+          <div class="admin-field"><label>Ссылка</label><input id="cLink" placeholder="https://..."></div>
+          <div class="admin-field"><label>QR-код (имя файла)</label><input id="cQr" placeholder="qr-vk.png"></div>
+        </div>
+        <div class="admin-field"><label>Превью-изображение (имя файла)</label><input id="cPreview" placeholder="preview-vk.jpg"></div>
+        <input type="hidden" id="cEditId">
+        <div style="display:flex;gap:10px;margin-top:10px">
+          <button class="admin-btn" id="cSave">💾 Сохранить</button>
+          <button class="admin-btn secondary" id="cCancel">Отменить</button>
+        </div>
+        <div class="admin-list" id="cList"></div>
+      </div>
+
+      <div class="tab-content" id="tab-products">
+        <h4 style="font-family:var(--disp);color:var(--deep);margin-bottom:12px">Продукты</h4>
+        <div class="admin-row">
+          <div class="admin-field"><label>Название</label><input id="pName"></div>
+          <div class="admin-field"><label>Цена</label><input id="pPrice" placeholder="500 ₽"></div>
+        </div>
+        <div class="admin-field"><label>Описание</label><textarea id="pDesc"></textarea></div>
+        <div class="admin-field"><label>Буллеты (через запятую)</label><input id="pBullets" placeholder="Пункт 1, Пункт 2"></div>
+        <div class="admin-row">
+          <div class="admin-field">
+            <label>Тип</label>
+            <select id="pType">
+              <option value="ПОСОБИЕ">ПОСОБИЕ (открыто на главной)</option>
+              <option value="ПОДПИСКА">ПОДПИСКА (после согласия)</option>
+              <option value="КОПИЛКА">КОПИЛКА (после согласия)</option>
+            </select>
+          </div>
+          <div class="admin-field"><label>Ссылка на оплату</label><input id="pUrl" placeholder="https://..."></div>
+        </div>
+        <div class="admin-field"><label>Изображение-превью (имя файла)</label><input id="pPreview" placeholder="product.jpg"></div>
+        <div class="admin-field"><label>Подвал (краткий текст)</label><input id="pFoot"></div>
+        <input type="hidden" id="pEditId">
+        <div style="display:flex;gap:10px;margin-top:10px">
+          <button class="admin-btn" id="pSave">💾 Сохранить</button>
+          <button class="admin-btn secondary" id="pCancel">Отменить</button>
+        </div>
+        <div class="admin-list" id="pList"></div>
+      </div>
+
+      <div class="tab-content" id="tab-settings">
+        <h4 style="font-family:var(--disp);color:var(--deep);margin-bottom:12px">Основные настройки</h4>
+        <div class="admin-row">
+          <div class="admin-field"><label>Ваше имя</label><input id="sName"></div>
+          <div class="admin-field"><label>ИНН</label><input id="sInn"></div>
+        </div>
+        <div class="admin-row">
+          <div class="admin-field"><label>Email</label><input id="sEmail"></div>
+          <div class="admin-field"><label>Адрес</label><input id="sAddress"></div>
+        </div>
+        <div class="admin-field"><label>Короткое превью (под именем на главной)</label><textarea id="sPreview"></textarea></div>
+        <div class="admin-field"><label>Текст основателя (под фото)</label><textarea id="sFounder"></textarea></div>
+        <div class="admin-row">
+          <div class="admin-field"><label>Код доступа (после формы)</label><input id="sAccessCode"></div>
+          <div class="admin-field"><label>Код админа (для входа сюда)</label><input id="sAdminCode"></div>
+        </div>
+        <div class="admin-field"><label>Фото (имя файла)</label><input id="sPhoto"></div>
+        <button class="admin-btn" id="sSave" style="margin-top:10px">💾 Сохранить настройки</button>
+        <hr style="margin:20px 0;border:none;border-top:1.5px dashed var(--line)">
+        <button class="admin-btn danger" id="sReset" style="width:100%;justify-content:center">🗑️ Сбросить все данные до настроек по умолчанию</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cookie" id="cookiebar">
+  <p>🌿 Сайт использует cookie и локальное хранилище для работы форм и запоминания согласия.
+  Подробности — в <a id="cookielink" href="#" target="_blank" rel="noopener">Политике конфиденциальности</a>.</p>
+  <div class="cookiebtns"><button class="cookiebtn" id="cookieok">Понятно</button></div>
+</div>
+<script>
+(function(){
+  var bar=document.getElementById('cookiebar');
+  var btn=document.getElementById('cookieok');
+  var seen=false;
+  try{seen=!!window.localStorage.getItem('cookie-ok');}catch(e){}
+  if(bar&&!seen){bar.className='cookie show';}
+  if(btn){btn.onclick=function(){try{window.localStorage.setItem('cookie-ok','1');}catch(e){}if(bar){bar.className='cookie';}};}
+})();
+</script>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <h5>Оператор персональных данных</h5>
+      <p id="footerOp"></p>
+      <button class="resetbtn" id="resetbtn" style="display:none">↺ сбросить сохранённое согласие (для проверки)</button>
+    </div>
+    <div>
+      <h5>Как это работает</h5>
+      <p>Согласие отправляется через Яндекс Форму и попадает в Яндекс Таблицу — реестр оператора
+      с номером, датой и временем (ст. 9 152-ФЗ). Ссылки, подписки и копилка открываются после отправки и ввода кода.</p>
+    </div>
+    <div>
+      <h5>Обращения и заявления</h5>
+      <a href="https://rkn.gov.ru/treatment/form/" target="_blank" rel="noopener">📋 Роскомнадзор</a>
+      <a href="https://fas.gov.ru/pages/obratitsya_v_fas" target="_blank" rel="noopener">⚖️ ФАС России</a>
+      <a href="https://petition.rospotrebnadzor.ru/petition/" target="_blank" rel="noopener">🛡️ Роспотребнадзор</a>
+      <a href="mailto:annfromcrimea@mail.ru?subject=Отзыв%20согласия%20на%20обработку%20ПД" target="_blank" rel="noopener">✉️ Отзыв согласия на обработку ПД</a>
+      <a href="mailto:annfromcrimea@mail.ru?subject=Запрос%20информации%20о%20ПД" target="_blank" rel="noopener">📄 Запрос информации о персональных данных</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const CONSENT_KEY='pd-consent-v2';
+const FALLBACK_ADMIN_CODE='anna2026';
+
+const DEFAULT_DATA = {
+  name:"Драчёва Анна Игоревна",
+  inn:"910509806683",
+  email:"annfromcrimea@mail.ru",
+  address:"Республика Крым",
+  accessCode:"ANNA2026",
+  adminCode:"anna2026",
+  photo:"photo1.jpg",
+  founderText:"Основатель студии. Педагог по образованию. Магистр филологии. Запись на занятия по иностранным языкам, логопедии и подготовке к школе.",
+  enrollmentPaused:true,
+  pauseText:"⏸ Набор на занятия временно приостановлен. Загляните в сообщества — там новости и материалы!",
+  previewText:"Я — Анна, преподаватель из Крыма. Помогаю родителям первоклашек пройти Spotlight без слёз и репетиторов, а ещё веду занятия по иностранным языкам, логопедии и подготовке к школе.",
+  insideChips:["Голосовые пояснения к урокам Spotlight","Материалы для печати и работы дома","Советы как поддерживать без давления","Разбор сложных тем из учебника","Методическая помощь от преподавателя"],
+  documents:[
+    { название:"Политика конфиденциальности", пояснение:"основной документ оператора · обновлена 04.09.2026", ссылка:"https://disk.yandex.ru/i/PLJkomvneJvQgA" },
+    { название:"Согласие на обработку персональных данных", пояснение:"цели, состав данных, порядок отзыва · ст. 9 152-ФЗ", ссылка:"https://disk.yandex.ru/i/jHvwJgA6Qa_SQQ" },
+    { название:"Согласие на получение рассылок", пояснение:"отдельное согласие на письма и анонсы", ссылка:"https://disk.yandex.ru/i/KFDTpe7tn6iB7Q" },
+    { название:"Согласие на использование отзывов, материалов, результатов и записей занятий", пояснение:"если захотите поделиться результатами", ссылка:"https://disk.yandex.ru/i/qGcWh-DQt5JqBQ" },
+    { название:"Договор-оферта", пояснение:"условия оплаты, подписки и возврата", ссылка:"https://disk.yandex.ru/i/9K4yyFwGBGg86A" }
+  ],
+  teachers:[
+    { id:"anna", name:"Анна", role:"Основатель студии · преподаватель", description:"Педагог по образованию. Магистр филологии. Веду занятия по иностранным языкам, логопедию и подготовку к школе.", tags:["Английский","Испанский","Немецкий","Логопедия","Подготовка к школе"], photo:"photo.jpg" }
+  ],
+  communities:[
+    { id:"vk", icon:"VK", name:"Студия изучения языков и развития Анны из Крыма", description:"Сообщество ВКонтакте: анонсы, материалы, новости студии. Делюсь разборами и полезностями для родителей и учеников.", link:"https://vk.ru/annfromcrimea", qr:"qr-vk.png", preview:"preview-vk.jpg" },
+    { id:"max", icon:"MAX", name:"Канал Анны из Крыма", description:"Канал в MAX: быстрые анонсы, короткие советы и полезные материалы по языкам и рукоделию.", link:"https://max.ru/join/_wpDnYzIiWKIr6vZUJze0fQuqPMuouIbaJwLQvt58zQ", qr:"qr-max.png", preview:"preview-max.jpg" }
+  ],
+  products:[
+    { id:"p1", name:"Spotlight Starter · 1 класс", description:"У вас первоклашка? Инструменты, чтобы помочь с английским без ваших знаний языка и без слёз.", bullets:["Голосовые пояснения вместо часов чтения правил","Материалы для печати и работы дома","Советы как поддерживать без давления","Разбор сложностей Spotlight 1 класса"], foot:"Вы можете помочь ребёнку даже если сами не знаете английский.", type:"ПОДПИСКА", price:"500 ₽/неделя", preview:"img-spotlight-1.jpg", url:"https://auth.robokassa.ru/RecurringSubscriptionPage/Subscription/Subscribe?SubscriptionId=2060115a-8886-4bba-bc1b-333584b38572" },
+    { id:"p2", name:"Spotlight 2 · 2 класс", description:"Грамматика становится сложнее. Будьте рядом с ребёнком без репетитора и лишних трат.", bullets:["Короткие голосовые по каждому уроку","Материалы для самостоятельной работы","Методическая помощь от преподавателя","Психологические подсказки как реагировать на ошибки"], foot:"Не нужен репетитор за тысячи рублей в месяц.", type:"ПОДПИСКА", price:"500 ₽/неделя", preview:"img-spotlight-2.jpg", url:"https://auth.robokassa.ru/RecurringSubscriptionPage/Subscription/Subscribe?SubscriptionId=87ce0c1d-3b3d-406c-93ce-1287af2312cd" },
+    { id:"p3", name:"Spotlight 3 · 3 класс", description:"Пробелы накапливаются. Остановите это вместе с ребёнком без паники.", bullets:["Материалы к каждому уроку для работы дома","Голосовые пояснения сложных тем","Советы как мотивировать без давления","Методическая поддержка от преподавателя"], foot:"Вы помогаете просто по инструкции от меня.", type:"ПОДПИСКА", price:"500 ₽/неделя", preview:"img-spotlight-3.jpg", url:"https://auth.robokassa.ru/RecurringSubscriptionPage/Subscription/Subscribe?SubscriptionId=91af6462-29ae-4e62-83f5-e9015cff4398" },
+    { id:"p4", name:"Spotlight 4 · 4 класс", description:"Подготовка к средней школе начинается уже сейчас. Без лишнего стресса.", bullets:["Материалы к каждому уроку для печати","Голосовые пояснения сложных правил","Методическая помощь от преподавателя программы","Психологические советы как хвалить и мотивировать"], foot:"Подготовьте ребёнка к средней школе без слёз.", type:"ПОДПИСКА", price:"500 ₽/неделя", preview:"img-spotlight-4.jpg", url:"https://auth.robokassa.ru/RecurringSubscriptionPage/Subscription/Subscribe?SubscriptionId=95c5b2c3-21f7-4fc1-8e4d-b17fdf8efd0b" },
+    { id:"p5", name:"100 английских слов и первые фразы за 30 дней", description:"Пособие для родителей и детей. Подарите вашему ребёнку возможность заговорить на английском вместе с вами!", bullets:[], foot:"Разовая покупка — доступ к пособию после оплаты.", type:"ПОСОБИЕ", price:"500 ₽", preview:"img-100-slov.jpg", url:"https://auth.robokassa.ru/merchant/Invoice/mMTJmWWbPkW5sr1wJ3wYxw" },
+    { id:"p6", name:"Психология изучения языков взрослыми (2 пособия)", description:"О том, как правильно изучать английский. И база фраз для повседневного общения.", bullets:[], foot:"Разовая покупка — комплект из 2 пособий после оплаты.", type:"ПОСОБИЕ", price:"500 ₽", preview:"img-psihologiya.jpg", url:"https://auth.robokassa.ru/merchant/Invoice/tyuTCYMNR06x4u-Fn_whZQ" },
+    { id:"p7", name:"Рукодельная копилка Анны", description:"Моя творческая копилка — чтобы любая рукодельница смогла повторить мои работы. Вяжу с 10 лет, педагог по образованию.", bullets:["Уникальные авторские изделия с описаниями","Схемы и инструкции для повторения","Секреты вязания и рукоделия от педагога","Поддержка и ответы на вопросы"], foot:"Объединяю страсть к обучению и рукоделию.", type:"КОПИЛКА", price:"по подписке", preview:"img-kopilka.jpg", url:"https://auth.robokassa.ru/merchant/Invoice/JCMwD4dbLkqb2vaCyRAacA" }
+  ],
+  ofertaUrl:"https://disk.yandex.ru/i/9K4yyFwGBGg86A",
+  quote:"Язык выучивается не тогда, когда его заставляют, а когда им увлекают. Моя задача — увлечь.",
+  lessonItems:["Индивидуально — только вы и преподаватель","Онлайн из любой точки мира","Время, удобное именно вам","Программа под уровень и темп ребёнка"],
+  importantItems:["Пробное занятие — за половину стоимости","Свяжусь с вами в течение дня для подтверждения","Планы изменились? Просто напишите мне"],
+  rknNotice:"[№91-26-057013 от 24.06.2026]",
+  publishDate:"04.09.2026"
+};
+
+let DATA = null;
+let ADMIN_SESSION_CODE = '';
+
+async function loadServerData(){
+  try{
+    const r = await fetch('api/load.php?t=' + Date.now(), {cache:'no-store'});
+    if(r.ok){
+      const server = await r.json();
+      if(server && typeof server === 'object' && !server.error){
+        for(const k in DEFAULT_DATA) if(!(k in server)) server[k] = JSON.parse(JSON.stringify(DEFAULT_DATA[k]));
+        return server;
+      }
+    }
+  }catch(e){
+    console.warn('Не удалось загрузить данные с сервера, использую значения по умолчанию.', e);
+  }
+  return JSON.parse(JSON.stringify(DEFAULT_DATA));
+}
+
+async function saveServerData(d){
+  try{
+    const r = await fetch('api/save.php', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ adminCode: ADMIN_SESSION_CODE || FALLBACK_ADMIN_CODE, data: d })
+    });
+    const res = await r.json();
+    if(res && res.success) return true;
+    alert('❌ Ошибка сохранения: ' + ((res && res.error) || 'Неизвестная ошибка'));
+    return false;
+  }catch(e){
+    alert('❌ Ошибка соединения с сервером. Проверьте, что существует api/save.php');
+    return false;
+  }
+}
+
+const byId=id=>document.getElementById(id);
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,8);}
+function lsGet(k){try{return localStorage.getItem(k);}catch(e){return null;}}
+function lsSet(k,v){try{localStorage.setItem(k,v);}catch(e){}}
+function lsDel(k){try{localStorage.removeItem(k);}catch(e){}}
+
+const FALLBACK='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 400 400%27%3E%3Crect width=%27400%27 height=%27400%27 fill=%27%23d6336c%27/%3E%3Ccircle cx=%27200%27 cy=%27158%27 r=%2774%27 fill=%27%23fff%27/%3E%3Cpath d=%27M84 340c10-72 58-108 116-108s106 36 116 108z%27 fill=%27%23fff%27/%3E%3C/svg%3E';
+const PRODUCT_FALLBACK='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 400 200%27%3E%3Crect width=%27400%27 height=%27200%27 fill=%27%23f6dcea%27/%3E%3Ctext x=%27200%27 y=%27120%27 font-size=%2764%27 text-anchor=%27middle%27%3E%F0%9F%93%9A%3C/text%3E%3C/svg%3E';
+const TEACHER_FALLBACK='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 400 300%27%3E%3Crect width=%27400%27 height=%27300%27 fill=%27%23f6dcea%27/%3E%3Ccircle cx=%27200%27 cy=%27115%27 r=%2755%27 fill=%27%23e3b7cd%27/%3E%3Cpath d=%27M90 300c10-70 55-100 110-100s100 30 110 100z%27 fill=%27%23e3b7cd%27/%3E%3C/svg%3E';
+const QR_FALLBACK='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 29 29%27%3E%3Crect width=%2729%27 height=%2729%27 fill=%27%23fff%27/%3E%3Cg fill=%27%233d2b33%27%3E%3Crect x=%271%27 y=%271%27 width=%277%27 height=%277%27/%3E%3Crect x=%2721%27 y=%271%27 width=%277%27 height=%277%27/%3E%3Crect x=%271%27 y=%2721%27 width=%277%27 height=%277%27/%3E%3C/g%3E%3C/svg%3E';
+const COMM_PREVIEW_FALLBACK='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 400 140%27%3E%3Crect width=%27400%27 height=%27140%27 fill=%27%23f6dcea%27/%3E%3Ctext x=%27200%27 y=%2790%27 font-size=%2754%27 text-anchor=%27middle%27%3E%F0%9F%93%B2%3C/text%3E%3C/svg%3E';
+
+function nowStamp(){const d=new Date(),p=n=>String(n).padStart(2,'0');return `${p(d.getDate())}.${p(d.getMonth()+1)}.${d.getFullYear()} ${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`;}
+function makeNo(){return 'ПД-'+new Date().getFullYear()+'-'+Math.floor(1000+Math.random()*9000);}
+
+function renderAll(){
+  const av=byId('avatar'); av.src=DATA.photo; av.onerror=()=>{av.onerror=null;av.src=FALLBACK;};
+  byId('heroName').textContent=DATA.name||'[ваше имя]';
+  byId('mastLead').textContent=DATA.previewText||'';
+  byId('founderText').textContent=DATA.founderText||'';
+  byId('insideChips').innerHTML=(DATA.insideChips||[]).map(i=>`<span class="chip"><i></i>${esc(i)}</span>`).join('');
+
+  byId('footerOp').innerHTML=
+    `<b>${esc(DATA.name)}</b>${DATA.inn?', ИНН '+esc(DATA.inn):''}${DATA.address?', адрес: '+esc(DATA.address):''}<br>`+
+    `По вопросам обработки персональных данных: <a href="mailto:${esc(DATA.email)}">${esc(DATA.email)}</a><br>`+
+    `Политика конфиденциальности опубликована ${esc(DATA.publishDate||'—')}. `+
+    `Уведомление об обработке ПД зарегистрировано Роскомнадзором, ${esc(DATA.rknNotice||'№ ____')}.<br><br>`+
+    `<b>Срок хранения ПД:</b> до момента отзыва согласия субъектом.<br>`+
+    `<b>Место хранения:</b> территория Российской Федерации.<br>`+
+    `<b>Обработчики ПД:</b> Яндекс (формы, почта, хранилище), Robokassa (платежи), ВКонтакте, MAX — в рамках договора-оферты.<br>`+
+    `<b>Передача за рубеж:</b> не осуществляется.<br><br>`+
+    `© Студия изучения языков и развития Анны из Крыма, 2026.<br>Пробное занятие — за половину стоимости.`;
+
+  renderProducts();
+  renderCommunities();
+  renderTeachers();
+  renderDocs();
+  renderBookAside();
+  renderEnrollmentState();
+}
+
+function productCard(p){
+  const t=(p.type||'').toUpperCase();
+  const isSub=t==='ПОДПИСКА', isCraft=t==='КОПИЛКА';
+  const label=t||'ПРОДУКТ';
+  const labelClass=isSub?'type-sub':(isCraft?'type-craft':'type-guide');
+  const btnText=isSub?'Подписаться →':(isCraft?'В копилку →':'Купить →');
+  return `
+  <div class="product">
+    <img class="pimg" src="${esc(p.preview||'')}" alt="${esc(p.name)}" onerror="this.onerror=null;this.src=PRODUCT_FALLBACK;">
+    <span class="price">${esc(p.price||'')}</span>
+    <div class="pbody">
+      <span class="sub ${labelClass}">${esc(label)}</span>
+      <h5>${esc(p.name)}</h5>
+      <div class="pdesc">${esc(p.description||'')}
+        ${p.bullets&&p.bullets.length?'<ul>'+p.bullets.map(b=>`<li>${esc(b)}</li>`).join('')+'</ul>':''}
+      </div>
+      ${p.foot?`<div class="pfoot">${esc(p.foot)}</div>`:''}
+      <a class="passgo" href="${esc(p.url)}" target="_blank" rel="noopener">${btnText}</a>
+    </div>
+  </div>`;
+}
+
+function renderProducts(){
+  byId('shopgrid').innerHTML=DATA.products.filter(p=>(p.type||'').toUpperCase()==='ПОСОБИЕ').map(productCard).join('');
+  byId('shopNote').innerHTML=DATA.ofertaUrl
+    ?`<b>Пособия</b> — разовая покупка по ссылке, без формы. Оплата по <a href="${esc(DATA.ofertaUrl)}" target="_blank" rel="noopener">договору-оферте</a>. Подписки и копилка открываются после согласия ниже.`
+    :`<b>Пособия</b> — разовая покупка по ссылке, без формы. Подписки и копилка открываются после согласия ниже.`;
+  byId('subgrid').innerHTML=DATA.products.filter(p=>(p.type||'').toUpperCase()!=='ПОСОБИЕ').map(productCard).join('');
+  byId('subNote').innerHTML=`<b>Подписки</b> продлеваются автоматически каждую неделю; отменить можно в любой момент в личном кабинете Robokassa. <b>Копилка</b> — доступ по ссылке после согласия. Вопросы: <a href="mailto:${esc(DATA.email)}">${esc(DATA.email)}</a>.`;
+}
+
+function renderCommunities(){
+  const has=!!lsGet(CONSENT_KEY);
+  byId('commgrid').innerHTML=DATA.communities.map(c=>`
+    <div class="commcard">
+      <img class="comm-preview" src="${esc(c.preview||'')}" alt="${esc(c.name)}" onerror="this.onerror=null;this.src=COMM_PREVIEW_FALLBACK;">
+      <div class="comm-body">
+        <div class="commhead"><span class="cicon">${esc(c.icon||'')}</span><b>${esc(c.name)}</b></div>
+        <p>${esc(c.description||'')}</p>
+        <div class="commfoot">
+          ${has?`<a class="passgo" href="${esc(c.link)}" target="_blank" rel="noopener">Перейти →</a>`
+                :`<span class="lockhint">🔒 Ссылка откроется после согласия</span>`}
+          <div class="qrwrap"><img class="qrimg" src="${esc(c.qr||'')}" alt="QR" onerror="this.onerror=null;this.src=QR_FALLBACK;"><span>QR-код</span></div>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+// Преподаватели видны ТОЛЬКО если набор открыт
+function renderTeachers(){
+  const list=DATA.teachers||[];
+  if(DATA.enrollmentPaused || !list.length){ byId('teamSection').style.display='none'; return; }
+  byId('teamSection').style.display='';
+  byId('teamgrid').innerHTML=list.map(t=>`
+    <div class="teacher">
+      <img class="timg" src="${esc(t.photo||'')}" alt="${esc(t.name||'')}" onerror="this.onerror=null;this.src=TEACHER_FALLBACK;">
+      <div class="tbody">
+        <div class="trole">${esc(t.role||'')}</div>
+        <div class="tname">${esc(t.name||'')}</div>
+        <div class="tdesc">${esc(t.description||'')}</div>
+        ${t.tags&&t.tags.length?`<div class="ttags">${t.tags.map(n=>`<span class="ttag">${esc(n)}</span>`).join('')}</div>`:''}
+        <button type="button" class="passgo teambook">Записаться →</button>
+      </div>
+    </div>`).join('');
+  document.querySelectorAll('.teambook').forEach(b=>b.addEventListener('click',()=>показать('book')));
+}
+
+function renderDocs(){
+  byId('doclist').innerHTML=DATA.documents.map((d,i)=>`
+    <div class="docrow">
+      <div class="docnum">${String(i+1).padStart(2,'0')}</div>
+      <div class="docname">${esc(d.название)}<small>${esc(d.пояснение||'')}</small></div>
+      <a class="docopen" href="${esc(d.ссылка)}" target="_blank" rel="noopener">Открыть ↗</a>
+      <label class="doccheck"><input type="checkbox" class="docbox"><span class="box"></span>Ознакомлен(а)</label>
+    </div>`).join('');
+  const docBoxes=[...document.querySelectorAll('.docbox')];
+  const iframeWrap=byId('iframeWrap');
+  function refreshDocs(){
+    const n=docBoxes.filter(b=>b.checked).length;
+    docBoxes.forEach(b=>b.closest('.docrow').classList.toggle('read',b.checked));
+    byId('docnote').innerHTML=n===docBoxes.length
+      ?'<b>Все документы отмечены ✓</b> — заполняйте форму согласия ниже ↓'
+      :`Отмечено <b>${n}</b> из ${DATA.documents.length} — отметьте все документы, чтобы открыть форму согласия`;
+    if(n===docBoxes.length){iframeWrap.classList.remove('iframe-locked');}
+    else{iframeWrap.classList.add('iframe-locked');}
+  }
+  docBoxes.forEach(b=>b.addEventListener('change',refreshDocs));
+  refreshDocs();
+  byId('bookDocsList').innerHTML=DATA.documents.map(d=>`<li><a href="${esc(d.ссылка)}" target="_blank" rel="noopener">${esc(d.название)} ↗</a></li>`).join('');
+  try{byId('cookielink').href=DATA.documents[0].ссылка;}catch(e){}
+}
+
+function renderBookAside(){
+  byId('lessonList').innerHTML=(DATA.lessonItems||[]).map(i=>`<li>${esc(i)}</li>`).join('');
+  byId('importantList').innerHTML=(DATA.importantItems||[]).map(i=>`<li>${esc(i)}</li>`).join('');
+  byId('quoteText').textContent='«'+(DATA.quote||'')+'»';
+  byId('bookLead').textContent="Выберите направление, удобную дату и время — я свяжусь с вами для подтверждения. Пробное занятие оплачивается в половину стоимости.";
+}
+
+function renderEnrollmentState(){
+  if(DATA.enrollmentPaused){
+    byId('pausePlate').style.display='block';
+    byId('pausePlate').textContent=DATA.pauseText||'';
+    byId('bookcard').style.display='none';
+    byId('pauseCard').style.display='block';
+  }else{
+    byId('pausePlate').style.display='none';
+    byId('bookcard').style.display='';
+    byId('pauseCard').style.display='none';
+  }
+  renderTeachers();
+}
+
+function grantAccess(animate){
+  const rec=JSON.parse(lsGet(CONSENT_KEY)||'{}');
+  const rl=byId('regline');
+  rl.style.display='inline-flex';
+  rl.innerHTML=`✅ Согласие № <b>${esc(rec.no||'—')}</b> от <b>${esc(rec.at||'—')}</b>`;
+  byId('accessSection').style.display='block';
+  byId('resetbtn').style.display='inline-block';
+  renderCommunities();
+  if(animate){setTimeout(()=>byId('accessSection').scrollIntoView({behavior:'smooth',block:'start'}),200);}
+}
+function checkAccessOnLoad(){
+  renderCommunities();
+  if(lsGet(CONSENT_KEY)){grantAccess(false);}
+}
+
+byId('submitbtn').addEventListener('click',()=>{
+  byId('formerr').classList.remove('show');
+  const boxes=[...document.querySelectorAll('.docbox')];
+  if(!boxes.every(b=>b.checked)){
+    byId('formerr').textContent='Сначала отметьте ознакомление со всеми документами выше.';
+    byId('formerr').classList.add('show');
+    return;
+  }
+  byId('codebox').style.display='block';
+  byId('codeinput').focus();
+});
+byId('codebtn').addEventListener('click',()=>{
+  const v=(byId('codeinput').value||'').trim().toUpperCase();
+  if(v===String(DATA.accessCode).toUpperCase()){
+    lsSet(CONSENT_KEY,JSON.stringify({at:nowStamp(),no:makeNo()}));
+    grantAccess(true);
+  }else{
+    byId('codeerr').textContent='Неверный код. Код показывается на странице «Спасибо» после отправки формы.';
+    byId('codeerr').classList.add('show');
+  }
+});
+byId('resetbtn').addEventListener('click',()=>{lsDel(CONSENT_KEY);byId('accessSection').style.display='none';renderCommunities();location.reload();});
+
+function показать(что){
+  byId('view-main').style.display=что==='main'?'':'none';
+  byId('view-book').style.display=что==='book'?'':'none';
+  window.scrollTo({top:0});
+  byId('floatingHomeBtn').classList.toggle('show', что==='book');
+}
+byId('bookBanner').addEventListener('click',e=>{e.preventDefault();показать('book');});
+byId('tomainbtn').addEventListener('click',()=>показать('main'));
+byId('floatingHomeBtn').addEventListener('click',()=>показать('main'));
+byId('goShop').addEventListener('click',()=>{показать('main');setTimeout(()=>byId('shopgrid').scrollIntoView({behavior:'smooth'}),60);});
+byId('goComm').addEventListener('click',()=>{показать('main');setTimeout(()=>byId('commSection').scrollIntoView({behavior:'smooth'}),60);});
+
+// Анимированный фон
+const floatingItems=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','✏️','📚','📖','','🎨','🌿','✨','🎯','💡','📌','','🌸'];
+const colors=['#c94c7c','#f4c542','#4caf50','#2196f3','#9c27b0','#ff9800','#00bcd4','#e91e63','#3f51b5','#8bc34a'];
+function createFloatingItem(){
+  const bg=document.getElementById('floatingBg');
+  if(!bg) return;
+  const item=document.createElement('div');
+  item.className='floating-item';
+  item.textContent=floatingItems[Math.floor(Math.random()*floatingItems.length)];
+  item.style.left=Math.random()*100+'%';
+  item.style.fontSize=(16+Math.random()*20)+'px';
+  item.style.color=colors[Math.floor(Math.random()*colors.length)];
+  const dur=(15+Math.random()*20);
+  item.style.animationDuration=dur+'s';
+  bg.appendChild(item);
+  setTimeout(()=>item.remove(), dur*1000);
+}
+setInterval(createFloatingItem, 800);
+for(let i=0;i<15;i++) setTimeout(createFloatingItem, i*200);
+
+const revObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');revObs.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
+
+function openModal(id){byId(id).classList.add('show');document.body.style.overflow='hidden';}
+function closeModal(id){byId(id).classList.remove('show');document.body.style.overflow='';}
+document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>closeModal(b.dataset.close)));
+document.querySelectorAll('.modal-overlay').forEach(o=>o.addEventListener('click',e=>{if(e.target===o) closeModal(o.id);}));
+
+let adminAuth=false;
+byId('adminTrigger').addEventListener('click',()=>{
+  if(adminAuth){ openAdminPanel(); }
+  else{ byId('adminCodeInput').value=''; byId('adminLoginError').classList.remove('show'); openModal('adminLoginModal'); setTimeout(()=>byId('adminCodeInput').focus(),50); }
+});
+byId('adminLoginBtn').addEventListener('click',adminLogin);
+byId('adminCodeInput').addEventListener('keydown',e=>{if(e.key==='Enter') adminLogin();});
+function adminLogin(){
+  if(!DATA) return;
+  const code=byId('adminCodeInput').value.trim();
+  if(code.toLowerCase()===String(DATA.adminCode).toLowerCase()){
+    ADMIN_SESSION_CODE = code;
+    adminAuth=true; closeModal('adminLoginModal'); openAdminPanel();
+  }else{ byId('adminLoginError').classList.add('show'); }
+}
+function openAdminPanel(){ openModal('adminPanelModal'); renderAdminLists(); loadAdminSettings(); renderEnrollmentAdmin(); }
+
+document.querySelectorAll('#adminTabs .tab').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('#adminTabs .tab').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  byId(t.dataset.tab).classList.add('active');
+}));
+
+function renderAdminLists(){
+  byId('tList').innerHTML=(DATA.teachers||[]).map(t=>`
+    <div class="admin-item">
+      <div><b>${esc(t.name||'')}</b><small>${esc(t.role||'')}</small></div>
+      <div class="admin-item-actions">
+        <button class="admin-btn sm secondary" data-edit-t="${esc(t.id)}">✏️</button>
+        <button class="admin-btn sm danger" data-del-t="${esc(t.id)}">🗑️</button>
+      </div>
+    </div>`).join('');
+  byId('tList').querySelectorAll('[data-edit-t]').forEach(b=>b.addEventListener('click',()=>editTeacher(b.dataset.editT)));
+  byId('tList').querySelectorAll('[data-del-t]').forEach(b=>b.addEventListener('click',()=>delTeacher(b.dataset.delT)));
+
+  byId('cList').innerHTML=(DATA.communities||[]).map(c=>`
+    <div class="admin-item">
+      <div><b>${esc(c.icon||'')} · ${esc(c.name||'')}</b><small>${esc((c.link||'').slice(0,50))}${(c.link||'').length>50?'…':''}</small></div>
+      <div class="admin-item-actions">
+        <button class="admin-btn sm secondary" data-edit-c="${esc(c.id)}">✏️</button>
+        <button class="admin-btn sm danger" data-del-c="${esc(c.id)}">🗑️</button>
+      </div>
+    </div>`).join('');
+  byId('cList').querySelectorAll('[data-edit-c]').forEach(b=>b.addEventListener('click',()=>editCommunity(b.dataset.editC)));
+  byId('cList').querySelectorAll('[data-del-c]').forEach(b=>b.addEventListener('click',()=>delCommunity(b.dataset.delC)));
+
+  byId('pList').innerHTML=(DATA.products||[]).map(p=>`
+    <div class="admin-item">
+      <div><b>${esc(p.name||'')}</b><small>${esc(p.type||'')} · ${esc(p.price||'')}</small></div>
+      <div class="admin-item-actions">
+        <button class="admin-btn sm secondary" data-edit-p="${esc(p.id)}">✏️</button>
+        <button class="admin-btn sm danger" data-del-p="${esc(p.id)}">🗑️</button>
+      </div>
+    </div>`).join('');
+  byId('pList').querySelectorAll('[data-edit-p]').forEach(b=>b.addEventListener('click',()=>editProduct(b.dataset.editP)));
+  byId('pList').querySelectorAll('[data-del-p]').forEach(b=>b.addEventListener('click',()=>delProduct(b.dataset.delP)));
+}
+
+function clearTeacherForm(){ ['tName','tRole','tDesc','tPhoto','tTags','tEditId'].forEach(id=>byId(id).value=''); }
+byId('tCancel').addEventListener('click',clearTeacherForm);
+byId('tSave').addEventListener('click', async ()=>{
+  const name=byId('tName').value.trim();
+  if(!name){ alert('Укажите имя преподавателя'); return; }
+  const editId=byId('tEditId').value;
+  const obj={ id:editId||uid(), name, role:byId('tRole').value.trim(), description:byId('tDesc').value.trim(),
+    tags:byId('tTags').value.split(',').map(s=>s.trim()).filter(Boolean), photo:byId('tPhoto').value.trim() };
+  if(editId){ const i=DATA.teachers.findIndex(x=>x.id===editId); if(i>=0) DATA.teachers[i]=obj; }
+  else DATA.teachers.push(obj);
+  await saveServerData(DATA); clearTeacherForm(); renderAdminLists(); renderTeachers();
+});
+function editTeacher(id){ const t=DATA.teachers.find(x=>x.id===id); if(!t) return;
+  byId('tEditId').value=t.id; byId('tName').value=t.name||''; byId('tRole').value=t.role||'';
+  byId('tDesc').value=t.description||''; byId('tTags').value=(t.tags||[]).join(', '); byId('tPhoto').value=t.photo||''; byId('tName').focus(); }
+async function delTeacher(id){ if(!confirm('Удалить преподавателя?')) return;
+  DATA.teachers=DATA.teachers.filter(x=>x.id!==id); await saveServerData(DATA); renderAdminLists(); renderTeachers(); }
+
+function clearCommunityForm(){ ['cIcon','cName','cDesc','cLink','cQr','cPreview','cEditId'].forEach(id=>byId(id).value=''); }
+byId('cCancel').addEventListener('click',clearCommunityForm);
+byId('cSave').addEventListener('click', async ()=>{
+  const name=byId('cName').value.trim();
+  if(!name){ alert('Укажите название'); return; }
+  const editId=byId('cEditId').value;
+  const obj={ id:editId||uid(), icon:byId('cIcon').value.trim(), name, description:byId('cDesc').value.trim(),
+    link:byId('cLink').value.trim(), qr:byId('cQr').value.trim(), preview:byId('cPreview').value.trim() };
+  if(editId){ const i=DATA.communities.findIndex(x=>x.id===editId); if(i>=0) DATA.communities[i]=obj; }
+  else DATA.communities.push(obj);
+  await saveServerData(DATA); clearCommunityForm(); renderAdminLists(); renderCommunities();
+});
+function editCommunity(id){ const c=DATA.communities.find(x=>x.id===id); if(!c) return;
+  byId('cEditId').value=c.id; byId('cIcon').value=c.icon||''; byId('cName').value=c.name||''; byId('cDesc').value=c.description||'';
+  byId('cLink').value=c.link||''; byId('cQr').value=c.qr||''; byId('cPreview').value=c.preview||''; byId('cName').focus(); }
+async function delCommunity(id){ if(!confirm('Удалить сообщество?')) return;
+  DATA.communities=DATA.communities.filter(x=>x.id!==id); await saveServerData(DATA); renderAdminLists(); renderCommunities(); }
+
+function clearProductForm(){ ['pName','pPrice','pDesc','pBullets','pUrl','pPreview','pFoot','pEditId'].forEach(id=>byId(id).value=''); byId('pType').value='ПОСОБИЕ'; }
+byId('pCancel').addEventListener('click',clearProductForm);
+byId('pSave').addEventListener('click', async ()=>{
+  const name=byId('pName').value.trim();
+  if(!name){ alert('Укажите название продукта'); return; }
+  const editId=byId('pEditId').value;
+  const obj={ id:editId||uid(), name, description:byId('pDesc').value.trim(),
+    bullets:byId('pBullets').value.split(',').map(s=>s.trim()).filter(Boolean), foot:byId('pFoot').value.trim(),
+    type:byId('pType').value, price:byId('pPrice').value.trim(), preview:byId('pPreview').value.trim(), url:byId('pUrl').value.trim() };
+  if(editId){ const i=DATA.products.findIndex(x=>x.id===editId); if(i>=0) DATA.products[i]=obj; }
+  else DATA.products.push(obj);
+  await saveServerData(DATA); clearProductForm(); renderAdminLists(); renderProducts();
+});
+function editProduct(id){ const p=DATA.products.find(x=>x.id===id); if(!p) return;
+  byId('pEditId').value=p.id; byId('pName').value=p.name||''; byId('pPrice').value=p.price||''; byId('pDesc').value=p.description||'';
+  byId('pBullets').value=(p.bullets||[]).join(', '); byId('pFoot').value=p.foot||''; byId('pType').value=p.type||'ПОСОБИЕ';
+  byId('pPreview').value=p.preview||''; byId('pUrl').value=p.url||''; byId('pName').focus(); }
+async function delProduct(id){ if(!confirm('Удалить продукт?')) return;
+  DATA.products=DATA.products.filter(x=>x.id!==id); await saveServerData(DATA); renderAdminLists(); renderProducts(); }
+
+function renderEnrollmentAdmin(){
+  const pill=byId('enrollPill');
+  if(DATA.enrollmentPaused){ pill.textContent='ПРИОСТАНОВЛЕН'; pill.className='status-pill off'; }
+  else{ pill.textContent='ОТКРЫТ'; pill.className='status-pill on'; }
+  byId('pauseText').value=DATA.pauseText||'';
+}
+byId('enrollToggle').addEventListener('click', async ()=>{ DATA.enrollmentPaused=!DATA.enrollmentPaused; await saveServerData(DATA); renderEnrollmentAdmin(); renderEnrollmentState(); });
+byId('pauseSave').addEventListener('click', async ()=>{ DATA.pauseText=byId('pauseText').value.trim(); const ok=await saveServerData(DATA); renderEnrollmentState(); if(ok) alert('Текст плашки сохранён.'); });
+
+function loadAdminSettings(){
+  byId('sName').value=DATA.name||''; byId('sInn').value=DATA.inn||''; byId('sEmail').value=DATA.email||'';
+  byId('sAddress').value=DATA.address||''; byId('sPreview').value=DATA.previewText||''; byId('sFounder').value=DATA.founderText||'';
+  byId('sAccessCode').value=DATA.accessCode||''; byId('sAdminCode').value=DATA.adminCode||''; byId('sPhoto').value=DATA.photo||'';
+}
+byId('sSave').addEventListener('click', async ()=>{
+  DATA.name=byId('sName').value.trim(); DATA.inn=byId('sInn').value.trim(); DATA.email=byId('sEmail').value.trim();
+  DATA.address=byId('sAddress').value.trim(); DATA.previewText=byId('sPreview').value.trim(); DATA.founderText=byId('sFounder').value.trim();
+  DATA.accessCode=byId('sAccessCode').value.trim(); DATA.adminCode=byId('sAdminCode').value.trim(); DATA.photo=byId('sPhoto').value.trim();
+  const ok=await saveServerData(DATA); renderAll(); checkAccessOnLoad(); if(ok) alert('Настройки сохранены.');
+});
+byId('sReset').addEventListener('click', async ()=>{
+  if(!confirm('Это удалит все ваши изменения на сервере и вернёт значения по умолчанию. Продолжить?')) return;
+  DATA = JSON.parse(JSON.stringify(DEFAULT_DATA));
+  const ok=await saveServerData(DATA);
+  renderAll(); renderAdminLists(); loadAdminSettings(); renderEnrollmentAdmin(); if(ok) alert('Данные сброшены.');
+});
+
+async function initApp(){
+  DATA = await loadServerData();
+  try{
+    const p=new URLSearchParams(location.search).get('access');
+    if(p && p.trim().toUpperCase()===String(DATA.accessCode).toUpperCase() && !lsGet(CONSENT_KEY)){
+      lsSet(CONSENT_KEY,JSON.stringify({at:nowStamp(),no:makeNo()}));
+    }
+  }catch(e){}
+  renderAll();
+  checkAccessOnLoad();
+  if(location.protocol==='file:'){
+    byId('consentFallback').classList.add('show');
+    byId('bookFallback').classList.add('show');
+  }
+}
+initApp();
+</script>
+</body>
+</html>
