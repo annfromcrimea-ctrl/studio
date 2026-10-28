@@ -818,7 +818,8 @@ function renderProducts(){
     ?`<b>Пособия</b> — разовая покупка по ссылке, без формы. Оплата по <a href="${esc(DATA.ofertaUrl)}" target="_blank" rel="noopener">договору-оферте</a>. Подписки и копилка открываются после согласия ниже.`
     :`<b>Пособия</b> — разовая покупка по ссылке, без формы. Подписки и копилка открываются после согласия ниже.`;
   byId('subgrid').innerHTML=DATA.products.filter(p=>(p.type||'').toUpperCase()!=='ПОСОБИЕ').map(productCard).join('');
-  byId('subNote').innerHTML=`<b>Подписки</b> продлеваются автоматически каждую неделю; отменить можно в любой момент в личном кабинете Robokassa. <b>Копилка</b> — доступ по ссылке после согласия. Вопросы: <a href="mailto:${esc(DATA.email)}">${esc(DATA.email)}</a>.`;
+  byId('subNote').innerHTML=`<b>Подписки</b> продлеваются автоматически каждую неделю; отменить можно в любой момент в личном кабинете Robokassa. <b>Копилка</b> — доступ по ссылке после согласия.     `По вопросам обработки персональных данных: <a href="mailto:${esc(DATA.email)}">${esc(DATA.email)}</a><br>`+
+    `ВКонтакте: <a href="https://vk.ru/annfromcrimea" target="_blank" rel="noopener">vk.ru/annfromcrimea</a><br>`+
 }
 
 function renderCommunities(){
