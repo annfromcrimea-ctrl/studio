@@ -272,6 +272,8 @@
 <div id="floatingBg"></div>
 <button type="button" class="homebtn" id="floatingHomeBtn">← Вернуться на главную</button>
 <button type="button" class="admin-trigger" id="adminTrigger" title="Админ-панель">⚙️</button>
+
+<!-- ГЛАВНАЯ СТРАНИЦА -->
 <div id="view-main">
   <header class="masthead">
     <div class="wrap">
@@ -291,6 +293,7 @@
       </div>
     </div>
   </header>
+
   <section class="block" id="commSection">
     <div class="wrap">
       <div class="blockhead reveal">
@@ -299,6 +302,7 @@
       <div class="commgrid reveal" id="commgrid"></div>
     </div>
   </section>
+
   <section class="block">
     <div class="wrap">
       <div class="blockhead reveal">
@@ -308,6 +312,7 @@
       <p class="shopnote" id="shopNote"></p>
     </div>
   </section>
+
   <section class="block" id="teamSection" style="display:none">
     <div class="wrap">
       <div class="blockhead">
@@ -317,7 +322,7 @@
     </div>
   </section>
   
-  <!-- === ИСПРАВЛЕННЫЙ БЛОК ДОКУМЕНТОВ И СОГЛАСИЯ === -->
+  <!-- БЛОК ДОКУМЕНТОВ И СОГЛАСИЯ -->
   <section class="block">
     <div class="wrap">
       <div class="blockhead reveal">
@@ -377,7 +382,7 @@
   </section>
 </div>
 
-<!-- === ИСПРАВЛЕННЫЙ БЛОК ЗАПИСИ === -->
+<!-- СТРАНИЦА ЗАПИСИ -->
 <div id="view-book" style="display:none">
   <header class="masthead">
     <div class="wrap" style="grid-template-columns:1fr">
@@ -449,7 +454,7 @@
   </main>
 </div>
 
-<!-- Админ-панель login -->
+<!-- МОДАЛЬНЫЕ ОКНА АДМИНКИ -->
 <div class="modal-overlay" id="adminLoginModal">
   <div class="modal admin-login">
     <div class="modal-head">
@@ -467,7 +472,6 @@
   </div>
 </div>
 
-<!-- Админ-панель main -->
 <div class="modal-overlay" id="adminPanelModal">
   <div class="modal">
     <div class="modal-head">
@@ -731,7 +735,7 @@ function nowStamp(){const d=new Date(),p=n=>String(n).padStart(2,'0');return `${
 function makeNo(){return 'ПД-'+new Date().getFullYear()+'-'+Math.floor(1000+Math.random()*9000);}
 
 function renderAll(){
-  const av=byId('avatar'); av.src=DATA.photo; av.onerror=()=>{av.onerror=null;av.src=FALLBACK;};
+  const av=byId('avatar'); if(av) av.src=DATA.photo; 
   byId('heroName').textContent=DATA.name||'[ваше имя]';
   byId('mastLead').textContent=DATA.previewText||'';
   byId('founderText').textContent=DATA.founderText||'';
@@ -1025,7 +1029,7 @@ byId('goShop').addEventListener('click',()=>{показать('main');setTimeout
 byId('goComm').addEventListener('click',()=>{показать('main');setTimeout(()=>byId('commSection').scrollIntoView({behavior:'smooth'}),60);});
 
 /* ====== ФОНОВЫЕ ЭЛЕМЕНТЫ ====== */
-const floatingItems=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','✏️','📚','📖','','🎨','🌿','✨','🎯','','📌','',''];
+const floatingItems=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','✏️','','📖','','','🌿','✨','🎯','','📌','',''];
 const colors=['#c94c7c','#f4c542','#4caf50','#2196f3','#9c27b0','#ff9800','#00bcd4','#e91e63','#3f51b5','#8bc34a'];
 function createFloatingItem(){
   const bg=document.getElementById('floatingBg');
