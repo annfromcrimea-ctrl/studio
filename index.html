@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+Вот в этот код обновление форм вставь: <!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
@@ -19,18 +19,13 @@
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{font-family:var(--body);background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden}
-
-  /* Тетрадный фон: клетка */
   body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
     background:
       linear-gradient(rgba(124,45,78,.07) 1px, transparent 1px),
       linear-gradient(90deg, rgba(124,45,78,.07) 1px, transparent 1px);
     background-size:38px 38px;}
-  /* красная линия полей, как в тетради */
   body::after{content:'';position:fixed;top:0;bottom:0;left:64px;width:2px;background:rgba(217,83,79,.25);z-index:0;pointer-events:none}
   @media(max-width:720px){body::after{left:34px}}
-
-  /* Плавающие буквы и эмодзи */
   #floatingBg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
   .floating-item{position:absolute;bottom:-50px;opacity:0;animation:float linear infinite;user-select:none;font-weight:700}
   @keyframes float{
@@ -39,16 +34,12 @@
     90%{opacity:.14}
     100%{transform:translateY(-110vh) rotate(360deg);opacity:0}
   }
-
   .wrap{max-width:1080px;margin:0 auto;padding:0 20px;position:relative;z-index:2}
-
   .homebtn{position:fixed;top:20px;left:20px;z-index:60;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;background:#fff;border:1.5px solid var(--line);color:var(--deep);padding:10px 18px;border-radius:999px;cursor:pointer;transition:all .2s;box-shadow:var(--shadow);display:none}
   .homebtn.show{display:block}
   .homebtn:hover{background:var(--acc);border-color:var(--acc);color:#fff;transform:translateY(-2px)}
-
   .admin-trigger{position:fixed;bottom:20px;right:20px;z-index:60;background:rgba(255,255,255,.9);border:1.5px solid var(--line);color:var(--soft);width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:18px;box-shadow:var(--shadow);transition:all .2s;display:grid;place-items:center}
   .admin-trigger:hover{background:var(--acc);color:#fff;transform:scale(1.1)}
-
   .masthead{padding:28px 0 18px}
   .masthead .wrap{display:grid;grid-template-columns:.75fr 1.25fr;gap:36px;align-items:center}
   .herocard{text-align:center;position:relative}
@@ -67,12 +58,10 @@
   .chip i{width:8px;height:8px;border-radius:50%;background:var(--acc)}
   .chips.inside{margin-top:12px}
   .chips.inside .chip i{background:var(--green)}
-
   .block{padding:18px 0;border-bottom:1px solid var(--line)}
   .blockhead{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:14px}
   .blockhead h2{font-family:var(--disp);font-weight:700;font-size:clamp(20px,2.6vw,28px);color:var(--deep)}
   .blocksub{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--soft)}
-
   .commgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
   .commcard{background:#fff;border:1.5px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:all .25s}
   .commcard:hover{transform:translateY(-3px);border-color:var(--acc2)}
@@ -89,7 +78,6 @@
   .qrimg{width:74px;height:74px;border:1.5px solid var(--line);border-radius:10px;background:#fff;padding:4px;object-fit:contain;display:block}
   .qrwrap span{display:block;font-family:var(--mono);font-size:9px;color:var(--soft);margin-top:4px}
   .lockhint{font-family:var(--mono);font-size:11px;color:var(--soft);background:var(--bg);border:1.5px dashed var(--line);border-radius:999px;padding:8px 14px;display:inline-block;align-self:flex-start}
-
   .teamgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
   .teacher{background:#fff;border:1.5px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:all .25s}
   .teacher:hover{transform:translateY(-4px);border-color:var(--acc2)}
@@ -101,7 +89,6 @@
   .ttags{display:flex;flex-wrap:wrap;gap:6px}
   .ttag{font-family:var(--mono);font-size:10px;background:var(--bg);border:1px solid var(--line);color:var(--deep);padding:4px 10px;border-radius:999px}
   button.passgo{border:none;cursor:pointer;width:100%}
-
   .doclist{display:flex;flex-direction:column;gap:8px}
   .docrow{display:grid;grid-template-columns:44px 1fr auto auto;gap:14px;align-items:center;background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:12px 18px;transition:all .25s}
   .docrow:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--acc2)}
@@ -118,7 +105,6 @@
   .docrow.read .docnum{background:var(--green);color:#fff}
   .docnote{margin-top:10px;font-family:var(--mono);font-size:12px;color:var(--soft)}
   .docnote b{color:var(--acc)}
-
   .consentcard{background:#fff;border:1.5px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:18px;margin-top:10px;overflow:hidden}
   .consent-lead{font-size:14px;color:var(--soft);font-weight:600;margin-bottom:12px;line-height:1.7}
   .consent-lead b{color:var(--deep)}
@@ -145,7 +131,6 @@
   .ghostbtn{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;border:1.5px solid var(--acc);background:none;color:var(--acc);padding:12px 20px;border-radius:999px;cursor:pointer;text-decoration:none;display:inline-block;transition:all .2s;font-weight:700}
   .ghostbtn:hover{background:var(--acc);color:#fff}
   .regline{display:none;align-items:center;gap:8px;background:rgba(127,176,105,.14);color:#5a8a4a;border:1.5px solid rgba(127,176,105,.5);border-radius:999px;padding:9px 20px;font-family:var(--mono);font-size:12px;font-weight:700;margin-bottom:14px}
-
   .bigbanner{display:flex;align-items:center;gap:20px;padding:26px 30px;border-radius:var(--r);text-decoration:none;margin-top:12px;transition:transform .25s;cursor:pointer;position:relative;overflow:hidden}
   .bigbanner:hover{transform:translateY(-4px)}
   .bigbanner .bb-emoji{font-size:36px;flex-shrink:0}
@@ -157,7 +142,6 @@
   .bookban .bb-btn{background:var(--sun);color:var(--deep2)}
   .bookban:hover .bb-btn{background:#fff;color:var(--deep);transform:scale(1.06)}
   @media(max-width:640px){.bigbanner{flex-direction:column;align-items:flex-start;gap:12px}}
-
   .shopgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
   .product{background:#fff;border:1.5px solid var(--line);border-radius:var(--r);display:flex;flex-direction:column;overflow:hidden;transition:all .25s;position:relative}
   .product:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--acc2)}
@@ -178,7 +162,6 @@
   .passgo:hover{background:var(--acc);color:#fff}
   .shopnote{margin-top:22px;font-size:13.5px;color:var(--soft);font-weight:600}
   .shopnote a{color:var(--acc)}
-
   .booksec{padding:20px 0 60px}
   .pauseplate{display:none;background:linear-gradient(135deg,var(--sun),#f6a05c);color:var(--deep2);border-radius:var(--r);padding:18px 24px;font-weight:800;font-family:var(--disp);font-size:16px;box-shadow:var(--shadow);margin-bottom:18px;text-align:center}
   .bookgrid{display:grid;grid-template-columns:1.25fr .75fr;gap:18px;align-items:start}
@@ -212,7 +195,6 @@
   .stampmark.slam{animation:slam .55s cubic-bezier(.2,2.2,.4,1)}
   @keyframes slam{0%{transform:rotate(4deg) scale(2.6);opacity:0}60%{transform:rotate(-9deg) scale(.94);opacity:1}100%{transform:rotate(-6deg) scale(1)}}
   .confirmbtns{display:flex;gap:14px;flex-wrap:wrap}
-
   .cookie{position:fixed;left:20px;bottom:20px;right:20px;z-index:80;max-width:400px;margin:0 auto;background:#fff;border:1.5px solid var(--acc2);border-radius:18px;box-shadow:0 18px 40px rgba(90,31,58,.25);padding:18px 20px;display:none;animation:fadeup .5s}
   .cookie.show{display:block}
   .cookie p{font-size:13px;color:var(--soft);font-weight:600;margin-bottom:12px}
@@ -220,7 +202,6 @@
   .cookiebtns{display:flex;gap:10px}
   .cookiebtn{font-family:var(--mono);font-size:11px;background:var(--acc);color:#fff;border:none;padding:9px 16px;border-radius:999px;cursor:pointer;font-weight:700}
   @media(min-width:720px){.cookie{right:auto;margin:0}}
-
   footer{background:var(--deep2);color:#e3c3d0;padding:30px 0 26px}
   footer .wrap{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:28px}
   footer h5{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#fff;margin-bottom:10px}
@@ -229,10 +210,8 @@
   footer a:hover{color:#fff;text-decoration:underline}
   .resetbtn{background:none;border:1px dashed #a05c7a;color:#c98ba4;font-family:var(--mono);font-size:10.5px;padding:8px 14px;border-radius:999px;cursor:pointer;margin-top:14px;transition:all .2s}
   .resetbtn:hover{color:#fff;border-color:#fff}
-
   .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
   .reveal.vis{opacity:1;transform:none}
-
   .modal-overlay{position:fixed;inset:0;background:rgba(90,31,58,.55);backdrop-filter:blur(6px);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
   .modal-overlay.show{display:flex;animation:fadeup .3s}
   .modal{background:#fff;border-radius:var(--r);box-shadow:0 30px 80px rgba(90,31,58,.4);width:100%;max-width:780px;max-height:90vh;overflow:hidden;display:flex;flex-direction:column}
@@ -273,7 +252,6 @@
   .admin-login{max-width:400px}
   .admin-login-error{display:none;margin-top:10px;font-family:var(--mono);font-size:11.5px;color:var(--red);text-align:center}
   .admin-login-error.show{display:block}
-
   @media(max-width:860px){
     .masthead .wrap{grid-template-columns:1fr;gap:26px}
     .docrow{grid-template-columns:1fr auto;gap:12px}
@@ -287,12 +265,9 @@
 </style>
 </head>
 <body>
-
 <div id="floatingBg"></div>
-
 <button type="button" class="homebtn" id="floatingHomeBtn">← Вернуться на главную</button>
 <button type="button" class="admin-trigger" id="adminTrigger" title="Админ-панель">⚙️</button>
-
 <div id="view-main">
   <header class="masthead">
     <div class="wrap">
@@ -312,7 +287,6 @@
       </div>
     </div>
   </header>
-
   <section class="block" id="commSection">
     <div class="wrap">
       <div class="blockhead reveal">
@@ -321,7 +295,6 @@
       <div class="commgrid reveal" id="commgrid"></div>
     </div>
   </section>
-
   <section class="block">
     <div class="wrap">
       <div class="blockhead reveal">
@@ -331,7 +304,6 @@
       <p class="shopnote" id="shopNote"></p>
     </div>
   </section>
-
   <section class="block" id="teamSection" style="display:none">
     <div class="wrap">
       <div class="blockhead">
@@ -340,7 +312,6 @@
       <div class="teamgrid" id="teamgrid"></div>
     </div>
   </section>
-
   <section class="block">
     <div class="wrap">
       <div class="blockhead reveal">
@@ -349,7 +320,6 @@
       </div>
       <div class="doclist reveal" id="doclist"></div>
       <div class="docnote" id="docnote"></div>
-
       <div class="consentcard reveal">
         <p class="consent-lead"><b>Почему нужна форма?</b> По закону «О персональных данных» (152-ФЗ) я могу открыть
         вам доступ к закрытым материалам только после вашего официального согласия. Форма фиксирует это согласие
@@ -374,7 +344,6 @@
       </div>
     </div>
   </section>
-
   <section class="block" id="accessSection" style="display:none">
     <div class="wrap">
       <div class="blockhead">
@@ -388,7 +357,6 @@
       <p class="shopnote" id="subNote"></p>
     </div>
   </section>
-
   <section class="block" style="border-bottom:none">
     <div class="wrap">
       <a class="bigbanner bookban" id="bookBanner" href="#запись">
@@ -399,7 +367,6 @@
     </div>
   </section>
 </div>
-
 <div id="view-book" style="display:none">
   <header class="masthead">
     <div class="wrap" style="grid-template-columns:1fr">
@@ -430,7 +397,6 @@
           <button type="button" class="submitbtn" id="bkbtn">Я отправил(а) заявку</button>
           <div class="formhint">Заявка попадает в журнал оператора (Яндекс Таблица) с датой и временем отправки.</div>
         </div>
-
         <div class="formcard" id="pauseCard" style="display:none">
           <div class="pause-emoji">🧶</div>
           <div class="pause-title">Набор временно приостановлен</div>
@@ -441,7 +407,6 @@
             <button type="button" class="ghostbtn" id="goComm" style="text-align:center">💬 Мои сообщества</button>
           </div>
         </div>
-
         <aside class="bookaside reveal">
           <div class="aside-card docs">
             <h4>Документы для ознакомления</h4>
@@ -461,7 +426,6 @@
           </div>
         </aside>
       </div>
-
       <div class="confirm" id="confirm">
         <div class="record">
           <div class="stampmark" id="bstamp">Заявка принята</div>
@@ -479,8 +443,6 @@
     </div>
   </main>
 </div>
-
-<!-- АДМИНКА: ВХОД -->
 <div class="modal-overlay" id="adminLoginModal">
   <div class="modal admin-login">
     <div class="modal-head">
@@ -497,8 +459,6 @@
     </div>
   </div>
 </div>
-
-<!-- АДМИНКА: ПАНЕЛЬ -->
 <div class="modal-overlay" id="adminPanelModal">
   <div class="modal">
     <div class="modal-head">
@@ -513,7 +473,6 @@
         <button class="tab" data-tab="tab-products">Продукты</button>
         <button class="tab" data-tab="tab-settings">Настройки</button>
       </div>
-
       <div class="tab-content active" id="tab-teachers">
         <h4 style="font-family:var(--disp);color:var(--deep);margin-bottom:12px">Преподаватели</h4>
         <div class="admin-row">
@@ -532,7 +491,6 @@
         </div>
         <div class="admin-list" id="tList"></div>
       </div>
-
       <div class="tab-content" id="tab-enrollment">
         <h4 style="font-family:var(--disp);color:var(--deep);margin-bottom:12px">Статус набора</h4>
         <div class="status-row">
@@ -546,7 +504,6 @@
         </div>
         <button class="admin-btn" id="pauseSave">💾 Сохранить текст</button>
       </div>
-
       <div class="tab-content" id="tab-communities">
         <h4 style="font-family:var(--disp);color:var(--deep);margin-bottom:12px">Сообщества</h4>
         <div class="admin-row">
@@ -566,7 +523,6 @@
         </div>
         <div class="admin-list" id="cList"></div>
       </div>
-
       <div class="tab-content" id="tab-products">
         <h4 style="font-family:var(--disp);color:var(--deep);margin-bottom:12px">Продукты</h4>
         <div class="admin-row">
@@ -595,7 +551,6 @@
         </div>
         <div class="admin-list" id="pList"></div>
       </div>
-
       <div class="tab-content" id="tab-settings">
         <h4 style="font-family:var(--disp);color:var(--deep);margin-bottom:12px">Основные настройки</h4>
         <div class="admin-row">
@@ -620,7 +575,6 @@
     </div>
   </div>
 </div>
-
 <div class="cookie" id="cookiebar">
   <p>🌿 Сайт использует cookie и локальное хранилище для работы форм и запоминания согласия.
   Подробности — в <a id="cookielink" href="#" target="_blank" rel="noopener">Политике конфиденциальности</a>.</p>
@@ -636,7 +590,6 @@
   if(btn){btn.onclick=function(){try{window.localStorage.setItem('cookie-ok','1');}catch(e){}if(bar){bar.className='cookie';}};}
 })();
 </script>
-
 <footer>
   <div class="wrap">
     <div>
@@ -659,7 +612,6 @@
     </div>
   </div>
 </footer>
-
 <script>
 const CONSENT_KEY='pd-consent-v2';
 const FALLBACK_ADMIN_CODE='anna2026';
@@ -669,13 +621,13 @@ const DEFAULT_DATA = {
   inn:"910509806683",
   email:"annfromcrimea@mail.ru",
   address:"Республика Крым",
-  accessCode:"ANNA2026",
+  accessCode:"Raspberry1994!",
   adminCode:"anna2026",
   photo:"photo1.jpg",
   founderText:"Основатель студии. Педагог по образованию. Магистр филологии. Запись на занятия по иностранным языкам, логопедии и подготовке к школе.",
   enrollmentPaused:true,
   pauseText:"⏸ Набор на занятия временно приостановлен. Загляните в сообщества — там новости и материалы!",
-  previewText:"Я — Анна, преподаватель из Крыма. Помогаю родителям первоклашек пройти Spotlight без слёз и репетиторов, а ещё веду занятия по иностранным языкам, логопедии и подготовке к школе.",
+  previewText:"Я — Анна, преподаватель из Крыма. Помогаю родителям и младшим школьникам пройти Spotlight без слёз и репетиторов, а ещё здесь можно записаться занятия по иностранным языкам, логопедии и подготовке к школе.",
   insideChips:["Голосовые пояснения к урокам Spotlight","Материалы для печати и работы дома","Советы как поддерживать без давления","Разбор сложных тем из учебника","Методическая помощь от преподавателя"],
   documents:[
     { название:"Политика конфиденциальности", пояснение:"основной документ оператора · обновлена 04.09.2026", ссылка:"https://disk.yandex.ru/i/PLJkomvneJvQgA" },
@@ -692,13 +644,17 @@ const DEFAULT_DATA = {
     { id:"max", icon:"MAX", name:"Канал Анны из Крыма", description:"Канал в MAX: быстрые анонсы, короткие советы и полезные материалы по языкам и рукоделию.", link:"https://max.ru/join/_wpDnYzIiWKIr6vZUJze0fQuqPMuouIbaJwLQvt58zQ", qr:"qr-max.png", preview:"preview-max.jpg" }
   ],
   products:[
-    { id:"p1", name:"Spotlight Starter · 1 класс", description:"У вас первоклашка? Инструменты, чтобы помочь с английским без ваших знаний языка и без слёз.", bullets:["Голосовые пояснения вместо часов чтения правил","Материалы для печати и работы дома","Советы как поддерживать без давления","Разбор сложностей Spotlight 1 класса"], foot:"Вы можете помочь ребёнку даже если сами не знаете английский.", type:"ПОДПИСКА", price:"500 ₽/неделя", preview:"img-spotlight-1.jpg", url:"https://auth.robokassa.ru/RecurringSubscriptionPage/Subscription/Subscribe?SubscriptionId=2060115a-8886-4bba-bc1b-333584b38572" },
-    { id:"p2", name:"Spotlight 2 · 2 класс", description:"Грамматика становится сложнее. Будьте рядом с ребёнком без репетитора и лишних трат.", bullets:["Короткие голосовые по каждому уроку","Материалы для самостоятельной работы","Методическая помощь от преподавателя","Психологические подсказки как реагировать на ошибки"], foot:"Не нужен репетитор за тысячи рублей в месяц.", type:"ПОДПИСКА", price:"500 ₽/неделя", preview:"img-spotlight-2.jpg", url:"https://auth.robokassa.ru/RecurringSubscriptionPage/Subscription/Subscribe?SubscriptionId=87ce0c1d-3b3d-406c-93ce-1287af2312cd" },
-    { id:"p3", name:"Spotlight 3 · 3 класс", description:"Пробелы накапливаются. Остановите это вместе с ребёнком без паники.", bullets:["Материалы к каждому уроку для работы дома","Голосовые пояснения сложных тем","Советы как мотивировать без давления","Методическая поддержка от преподавателя"], foot:"Вы помогаете просто по инструкции от меня.", type:"ПОДПИСКА", price:"500 ₽/неделя", preview:"img-spotlight-3.jpg", url:"https://auth.robokassa.ru/RecurringSubscriptionPage/Subscription/Subscribe?SubscriptionId=91af6462-29ae-4e62-83f5-e9015cff4398" },
-    { id:"p4", name:"Spotlight 4 · 4 класс", description:"Подготовка к средней школе начинается уже сейчас. Без лишнего стресса.", bullets:["Материалы к каждому уроку для печати","Голосовые пояснения сложных правил","Методическая помощь от преподавателя программы","Психологические советы как хвалить и мотивировать"], foot:"Подготовьте ребёнка к средней школе без слёз.", type:"ПОДПИСКА", price:"500 ₽/неделя", preview:"img-spotlight-4.jpg", url:"https://auth.robokassa.ru/RecurringSubscriptionPage/Subscription/Subscribe?SubscriptionId=95c5b2c3-21f7-4fc1-8e4d-b17fdf8efd0b" },
+    { id:"p1", name:"Spotlight Starter · 1 класс", description:"У вас первоклашка? Инструменты, чтобы помочь с английским без ваших знаний языка и без слёз.", bullets:["Голосовые пояснения вместо часов чтения правил","Материалы для печати и работы дома","Советы как поддерживать без давления","Разбор сложностей Spotlight 1 класса"], foot:"Вы можете помочь ребёнку даже если сами не знаете английский.", type:"ПОДПИСКА", price:"1000 ₽/неделя", preview:"img-spotlight-1.jpg", url:"https://auth.robokassa.ru/RecurringSubscriptionPage/Subscription/Subscribe?SubscriptionId=3e46721c-4392-4285-b77b-82b6e45ad6f7" },
+    { id:"p2", name:"Spotlight 2 · 2 класс", description:"Грамматика становится сложнее. Будьте рядом с ребёнком без репетитора и лишних трат.", bullets:["Короткие голосовые по каждому уроку","Материалы для самостоятельной работы","Методическая помощь от преподавателя","Психологические подсказки как реагировать на ошибки"], foot:"Не нужен репетитор за тысячи рублей в месяц.", type:"ПОДПИСКА", price:"1000 ₽/неделя", preview:"img-spotlight-2.jpg", url:"https://auth.robokassa.ru/RecurringSubscriptionPage/Subscription/Subscribe?SubscriptionId=62d6b9d2-a863-4929-9021-4e532c1ff24e" },
+    { id:"p3", name:"Spotlight 3 · 3 класс", description:"Пробелы накапливаются. Остановите это вместе с ребёнком без паники.", bullets:["Материалы к каждому уроку для работы дома","Голосовые пояснения сложных тем","Советы как мотивировать без давления","Методическая поддержка от преподавателя"], foot:"Вы помогаете просто по инструкции от меня.", type:"ПОДПИСКА", price:"1000 ₽/неделя", preview:"img-spotlight-3.jpg", url:"https://auth.robokassa.ru/RecurringSubscriptionPage/Subscription/Subscribe?SubscriptionId=9f1ba9ab-a559-405f-8190-925a84bb08a8" },
+    { id:"p4", name:"Spotlight 4 · 4 класс", description:"Подготовка к средней школе начинается уже сейчас. Без лишнего стресса.", bullets:["Материалы к каждому уроку для печати","Голосовые пояснения сложных правил","Методическая помощь от преподавателя программы","Психологические советы как хвалить и мотивировать"], foot:"Подготовьте ребёнка к средней школе без слёз.", type:"ПОДПИСКА", price:"1000 ₽/неделя", preview:"img-spotlight-4.jpg", url:"https://auth.robokassa.ru/RecurringSubscriptionPage/Subscription/Subscribe?SubscriptionId=e1b6f5f1-fa42-4cf0-a31f-15f93b6e3094" },
     { id:"p5", name:"100 английских слов и первые фразы за 30 дней", description:"Пособие для родителей и детей. Подарите вашему ребёнку возможность заговорить на английском вместе с вами!", bullets:[], foot:"Разовая покупка — доступ к пособию после оплаты.", type:"ПОСОБИЕ", price:"500 ₽", preview:"img-100-slov.jpg", url:"https://auth.robokassa.ru/merchant/Invoice/mMTJmWWbPkW5sr1wJ3wYxw" },
     { id:"p6", name:"Психология изучения языков взрослыми (2 пособия)", description:"О том, как правильно изучать английский. И база фраз для повседневного общения.", bullets:[], foot:"Разовая покупка — комплект из 2 пособий после оплаты.", type:"ПОСОБИЕ", price:"500 ₽", preview:"img-psihologiya.jpg", url:"https://auth.robokassa.ru/merchant/Invoice/tyuTCYMNR06x4u-Fn_whZQ" },
-    { id:"p7", name:"Рукодельная копилка Анны", description:"Моя творческая копилка — чтобы любая рукодельница смогла повторить мои работы. Вяжу с 10 лет, педагог по образованию.", bullets:["Уникальные авторские изделия с описаниями","Схемы и инструкции для повторения","Секреты вязания и рукоделия от педагога","Поддержка и ответы на вопросы"], foot:"Объединяю страсть к обучению и рукоделию.", type:"КОПИЛКА", price:"по подписке", preview:"img-kopilka.jpg", url:"https://auth.robokassa.ru/merchant/Invoice/JCMwD4dbLkqb2vaCyRAacA" }
+    { id:"p7", name:"Рукодельная копилка Анны", description:"Моя творческая копилка — чтобы любая рукодельница смогла повторить мои работы. Вяжу с 10 лет, педагог по образованию.", bullets:["Уникальные авторские изделия с описаниями","Схемы и инструкции для повторения","Секреты вязания и рукоделия от педагога","Поддержка и ответы на вопросы"], foot:"Объединяю страсть к обучению и рукоделию.", type:"КОПИЛКА", price:"по подписке", preview:"img-kopilka.jpg", url:"https://auth.robokassa.ru/merchant/Invoice/JCMwD4dbLkqb2vaCyRAacA" },
+    { id:"p8", name:"Флешкарты по английскому языку: Spotlight Starter (PDF)", description:"Авторские флешкарты от студии Анны из Крыма для самого первого этапа обучения английскому языку. Идеальный помощник для родителей, которые хотят сделать изучение языка дома живым, понятным и веселым. Это электронный товар. Вам останется только распечатать его на обычном принтере и начать заниматься!", bullets:[], foot:"Разовая покупка — доступно сразу после оплаты.", type:"ПОСОБИЕ", price:"500 ₽", preview:"product1.jpg", url:"https://auth.robokassa.ru/merchant/Invoice/VScNyypUz0STMmusLlfu6A" },
+    { id:"p9", name:"Флешкарты по английскому языку: Spotlight 2 (PDF)", description:"Авторские флешкарты от студии Анны из Крыма для самого первого этапа обучения английскому языку. Идеальный помощник для родителей, которые хотят сделать изучение языка дома живым, понятным и веселым. Это электронный товар. Вам останется только распечатать его на обычном принтере и начать заниматься!", bullets:[], foot:"Разовая покупка — доступно сразу после оплаты.", type:"ПОСОБИЕ", price:"500 ₽", preview:"product2.jpg", url:"https://auth.robokassa.ru/merchant/Invoice/fmAq54FXAE261evHFvCtsg" },
+    { id:"p10", name:"Флешкарты по английскому языку: Spotlight 3 (PDF)", description:"Авторские флешкарты от студии Анны из Крыма для самого первого этапа обучения английскому языку. Идеальный помощник для родителей, которые хотят сделать изучение языка дома живым, понятным и веселым. Это электронный товар. Вам останется только распечатать его на обычном принтере и начать заниматься!", bullets:[], foot:"Разовая покупка — доступно сразу после оплаты.", type:"ПОСОБИЕ", price:"500 ₽", preview:"product3.jpg", url:"https://auth.robokassa.ru/merchant/Invoice/8lXivQDgi0iP92S-o5h_Uw" },
+    { id:"p11", name:"Флешкарты по английскому языку: Spotlight 4 (PDF)", description:"Авторские флешкарты от студии Анны из Крыма для самого первого этапа обучения английскому языку. Идеальный помощник для родителей, которые хотят сделать изучение языка дома живым, понятным и веселым. Это электронный товар. Вам останется только распечатать его на обычном принтере и начать заниматься!", bullets:[], foot:"Разовая покупка — доступно сразу после оплаты.", type:"ПОСОБИЕ", price:"500 ₽", preview:"product4.jpg", url:"https://auth.robokassa.ru/merchant/Invoice/ThsXU9QBKk2ctx3zF0ksDA" }
   ],
   ofertaUrl:"https://disk.yandex.ru/i/9K4yyFwGBGg86A",
   quote:"Язык выучивается не тогда, когда его заставляют, а когда им увлекают. Моя задача — увлечь.",
@@ -770,6 +726,7 @@ function renderAll(){
   byId('footerOp').innerHTML=
     `<b>${esc(DATA.name)}</b>${DATA.inn?', ИНН '+esc(DATA.inn):''}${DATA.address?', адрес: '+esc(DATA.address):''}<br>`+
     `По вопросам обработки персональных данных: <a href="mailto:${esc(DATA.email)}">${esc(DATA.email)}</a><br>`+
+    `ВКонтакте: <a href="https://vk.ru/gim223590574?entrypoint=community_page" target="_blank" rel="noopener">написать в сообщения сообщества</a><br>`+
     `Политика конфиденциальности опубликована ${esc(DATA.publishDate||'—')}. `+
     `Уведомление об обработке ПД зарегистрировано Роскомнадзором, ${esc(DATA.rknNotice||'№ ____')}.<br><br>`+
     `<b>Срок хранения ПД:</b> до момента отзыва согласия субъектом.<br>`+
@@ -834,7 +791,6 @@ function renderCommunities(){
     </div>`).join('');
 }
 
-// Преподаватели видны ТОЛЬКО если набор открыт
 function renderTeachers(){
   const list=DATA.teachers||[];
   if(DATA.enrollmentPaused || !list.length){ byId('teamSection').style.display='none'; return; }
@@ -949,7 +905,6 @@ byId('floatingHomeBtn').addEventListener('click',()=>показать('main'));
 byId('goShop').addEventListener('click',()=>{показать('main');setTimeout(()=>byId('shopgrid').scrollIntoView({behavior:'smooth'}),60);});
 byId('goComm').addEventListener('click',()=>{показать('main');setTimeout(()=>byId('commSection').scrollIntoView({behavior:'smooth'}),60);});
 
-// Анимированный фон
 const floatingItems=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','✏️','📚','📖','','🎨','🌿','✨','🎯','💡','📌','','🌸'];
 const colors=['#c94c7c','#f4c542','#4caf50','#2196f3','#9c27b0','#ff9800','#00bcd4','#e91e63','#3f51b5','#8bc34a'];
 function createFloatingItem(){
