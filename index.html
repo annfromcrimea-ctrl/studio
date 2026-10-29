@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Студия изучения языков и развития Анны из Крыма</title>
-<meta name="description" content="Spotlight без слёз: подписки для родителей первоклашек. Пособия по английскому. Запись на занятия по иностранным языкам, логопедии и подготовке к школе. Оператор ПД · 152-ФЗ №91-26-057013 от 24.06.2026 №91-26-057013 от 24.06.2026.">
+<meta name="description" content="Spotlight без слёз: подписки для родителей первоклашек. Пособия по английскому. Запись на занятия по иностранным языкам, логопедии и подготовке к школе. Оператор ПД · 152-ФЗ №91-26-057013 от 24.06.2026.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='26' cy='32' r='9' fill='%23d6336c'/%3E%3Ccircle cx='38' cy='32' r='9' fill='%23d6336c'/%3E%3Ccircle cx='32' cy='43' r='9' fill='%23c2255c'/%3E%3Cpath d='M32 22c-2-6-8-8-12-6 2 4 6 6 12 6zm0 0c2-6 8-8 12-6-2 4-6 6-12 6z' fill='%237fb069'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -105,23 +105,28 @@
   .docrow.read .docnum{background:var(--green);color:#fff}
   .docnote{margin-top:10px;font-family:var(--mono);font-size:12px;color:var(--soft)}
   .docnote b{color:var(--acc)}
-  .consentcard{background:#fff;border:1.5px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:18px;margin-top:10px;overflow:hidden}
-  .consent-lead{font-size:14px;color:var(--soft);font-weight:600;margin-bottom:12px;line-height:1.7}
-  .consent-lead b{color:var(--deep)}
-  .iframe-wrap{position:relative;background:var(--bg);border-radius:16px;padding:8px;margin-bottom:12px;border:1.5px dashed var(--acc2)}
-  .iframe-wrap iframe{width:100%;min-height:540px;border:none;display:block;border-radius:10px;background:#fff}
-  .iframe-fallback{display:none;margin-top:12px;padding:18px;background:rgba(214,51,108,.06);border:1.5px solid var(--acc2);border-radius:16px;text-align:center}
-  .iframe-fallback.show{display:block}
-  .iframe-fallback p{font-size:14px;color:var(--soft);margin-bottom:12px;font-weight:600}
-  .iframe-fallback a{display:inline-block;font-family:var(--mono);font-size:13px;font-weight:700;color:#fff;background:var(--acc);padding:13px 26px;border-radius:999px;text-decoration:none;box-shadow:0 8px 20px rgba(214,51,108,.35)}
-  .iframe-fallback a:hover{background:var(--deep)}
-  .iframe-locked{position:relative}
-  .iframe-locked::after{content:'🔒 Отметьте документы выше, чтобы открыть форму';
-    position:absolute;inset:0;background:rgba(253,249,244,.92);display:grid;place-items:center;
-    font-family:var(--mono);font-size:13px;color:var(--deep);text-align:center;padding:20px;border-radius:16px;font-weight:700;z-index:2}
-  .iframe-locked iframe{pointer-events:none;filter:blur(4px) grayscale(.5);opacity:.4}
+  
+  /* === НОВЫЕ СТИЛИ ДЛЯ КНОПОК ФОРМ === */
+  .form-action-btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    font-family:var(--disp);font-weight:700;font-size:16px;
+    background:var(--acc);color:#fff;border:none;padding:16px 32px;border-radius:999px;
+    cursor:pointer;text-decoration:none;transition:all .25s;
+    box-shadow:0 8px 24px rgba(214,51,108,.3);
+    margin:10px 0;
+    width:100%;
+    max-width:400px;
+  }
+  .form-action-btn:hover{background:var(--deep);transform:translateY(-2px);box-shadow:0 12px 28px rgba(90,31,58,.35);}
+  .form-hint-text{font-family:var(--mono);font-size:11px;color:var(--soft);margin-top:8px;text-align:center;}
+  
+  .consentcard{background:#fff;border:1.5px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:24px;margin-top:10px;text-align:center;}
+  .consent-lead{font-size:14px;color:var(--soft);font-weight:600;margin-bottom:16px;line-height:1.7;text-align:left;}
+  .consent-lead b{color:var(--deep);}
   .submitbtn{font-family:var(--disp);font-weight:700;font-size:15px;background:var(--acc);color:#fff;border:none;padding:17px 34px;border-radius:999px;cursor:pointer;width:100%;transition:all .25s;box-shadow:0 8px 24px rgba(214,51,108,.4)}
   .submitbtn:hover{background:var(--deep);transform:translateY(-2px);box-shadow:0 12px 28px rgba(90,31,58,.35)}
+  .submitbtn.update-mode{background:var(--sun);color:var(--deep);box-shadow:0 8px 24px rgba(246,196,83,.4);}
+  .submitbtn.update-mode:hover{background:#eab308;transform:translateY(-2px);}
   .formerr{display:none;margin-top:12px;font-family:var(--mono);font-size:12px;color:var(--red)}
   .formerr.show{display:block}
   .codebox{margin-top:12px;padding:16px;border:1.5px dashed var(--acc2);border-radius:16px;background:var(--bg)}
@@ -257,7 +262,6 @@
     .docrow{grid-template-columns:1fr auto;gap:12px}
     .docnum{display:none}
     footer .wrap{grid-template-columns:1fr}
-    .iframe-wrap iframe{min-height:460px}
     .bookgrid{grid-template-columns:1fr}
     .homebtn{top:14px;left:14px;font-size:10.5px;padding:8px 14px}
     .admin-row{grid-template-columns:1fr}
@@ -312,28 +316,31 @@
       <div class="teamgrid" id="teamgrid"></div>
     </div>
   </section>
+  
+  <!-- === ИСПРАВЛЕННЫЙ БЛОК ДОКУМЕНТОВ И СОГЛАСИЯ === -->
   <section class="block">
     <div class="wrap">
       <div class="blockhead reveal">
         <h2>Документы и согласие</h2>
-        <span class="blocksub">это займёт пару минут: прочитайте документы, заполните форму, введите код — и всё откроется</span>
+        <span class="blocksub">прочитайте документы, заполните форму в новой вкладке, введите код — и всё откроется</span>
       </div>
       <div class="doclist reveal" id="doclist"></div>
       <div class="docnote" id="docnote"></div>
-      <div class="consentcard reveal">
-        <p class="consent-lead"><b>Почему нужна форма?</b> По закону «О персональных данных» (152-ФЗ) я могу открыть
-        вам доступ к закрытым материалам только после вашего официального согласия. Форма фиксирует это согласие
-        с датой и номером — так ваши данные защищены, а я работаю законно. Это забота о вас, а не бюрократия.</p>
-        <div class="iframe-wrap iframe-locked" id="iframeWrap">
-          <script src="https://forms.yandex.ru/_static/embed.js"></script>
-          <iframe src="https://forms.yandex.ru/u/6a99a8eb02848f4e726049e7?iframe=1" frameborder="0" name="ya-form-6a99a8eb02848f4e726049e7" width="650" id="consentIframe"></iframe>
-        </div>
-        <div class="iframe-fallback" id="consentFallback">
-          <p>Форма не встроилась (так бывает при открытии с компьютера).<br>Откройте её в новой вкладке, отправьте — и вернитесь:</p>
-          <a href="https://forms.yandex.ru/u/6a99a8eb02848f4e726049e7" target="_blank" rel="noopener">Открыть форму согласия ↗</a>
-        </div>
-        <button type="button" class="submitbtn" id="submitbtn">Я отправил(а) форму — ввести код доступа →</button>
+      
+      <div class="consentcard reveal" id="consentCardBlock">
+        <p class="consent-lead"><b>Почему нужна форма?</b> По закону «О персональных данных» (152-ФЗ) я могу открыть вам доступ к закрытым материалам только после вашего официального согласия. Форма фиксирует это согласие с датой и номером.</p>
+        
+        <!-- Кнопка открытия формы согласия -->
+        <a href="https://forms.yandex.ru/u/6a99a8eb02848f4e726049e7/" target="_blank" rel="noopener" class="form-action-btn" id="openConsentBtn">
+          📝 Открыть форму согласия ↗
+        </a>
+        <p class="form-hint-text" id="consentHint">Форма откроется в новой вкладке. После отправки вернитесь сюда и нажмите кнопку ниже.</p>
+        
+        <!-- Кнопка подтверждения отправки -->
+        <button type="button" class="submitbtn" id="submitbtn" style="margin-top:12px;">✅ Я отправил(а) форму — ввести код доступа →</button>
         <div class="formerr" id="formerr"></div>
+        
+        <!-- Панель ввода кода -->
         <div class="codebox" id="codebox" style="display:none">
           <p>На странице «Спасибо» после отправки формы показан <b>код доступа</b>. Введите его:</p>
           <input id="codeinput" placeholder="Код доступа" autocomplete="off">
@@ -344,6 +351,7 @@
       </div>
     </div>
   </section>
+
   <section class="block" id="accessSection" style="display:none">
     <div class="wrap">
       <div class="blockhead">
@@ -357,6 +365,7 @@
       <p class="shopnote" id="subNote"></p>
     </div>
   </section>
+  
   <section class="block" style="border-bottom:none">
     <div class="wrap">
       <a class="bigbanner bookban" id="bookBanner" href="#запись">
@@ -367,6 +376,8 @@
     </div>
   </section>
 </div>
+
+<!-- === ИСПРАВЛЕННЫЙ БЛОК ЗАПИСИ === -->
 <div id="view-book" style="display:none">
   <header class="masthead">
     <div class="wrap" style="grid-template-columns:1fr">
@@ -383,20 +394,27 @@
       <div class="bookgrid">
         <div class="formcard" id="bookcard">
           <div style="font-size:15px;color:var(--soft);line-height:1.7;margin-bottom:16px;font-weight:600">
-            <b style="color:var(--deep)">Заполните форму записи</b> прямо здесь. Выберите занятие, дату и время,
-            заполните контакты и отправьте. Я свяжусь с вами для подтверждения.
+            <b style="color:var(--deep)">Заполните форму записи</b>. Выберите занятие, дату и время, заполните контакты и отправьте. Я свяжусь с вами для подтверждения.
           </div>
-          <div class="iframe-wrap">
-            <script src="https://forms.yandex.ru/_static/embed.js"></script>
-            <iframe src="https://forms.yandex.ru/u/69ce6b5a6d2d732e6c4b55f8?iframe=1" frameborder="0" name="ya-form-69ce6b5a6d2d732e6c4b55f8" width="650" id="bookIframe"></iframe>
+          
+          <!-- Кнопка открытия формы записи -->
+          <a href="https://forms.yandex.ru/u/69ce6b5a6d2d732e6c4b55f8/" target="_blank" rel="noopener" class="form-action-btn" id="openBookingBtn" style="background:var(--deep);">
+            📅 Открыть форму записи ↗
+          </a>
+          <p class="form-hint-text" id="bookingHint">Заявка попадет мне на почту мгновенно.</p>
+          
+          <!-- Кнопка подтверждения -->
+          <button type="button" class="submitbtn" id="bkbtn" style="margin-top:20px;background:var(--green);">✅ Я отправил(а) заявку</button>
+          
+          <!-- Сообщение об успехе -->
+          <div id="bookingSuccessMsg" style="display:none;margin-top:15px;padding:15px;background:rgba(127,176,105,.1);border:1.5px solid var(--green);border-radius:16px;color:#4a8a3a;font-weight:700;text-align:center;">
+            ✅ Заявка принята! Свяжусь с вами для подтверждения.<br>
+            <small style="font-weight:400;color:var(--soft);display:block;margin-top:6px;">Если нужно записать ещё одного человека или изменить данные — нажмите кнопку выше.</small>
           </div>
-          <div class="iframe-fallback" id="bookFallback">
-            <p>Форма не встроилась (так бывает при открытии с компьютера).<br>Откройте её в новой вкладке и отправьте заявку:</p>
-            <a href="https://forms.yandex.ru/u/69ce6b5a6d2d732e6c4b55f8" target="_blank" rel="noopener">Открыть форму записи ↗</a>
-          </div>
-          <button type="button" class="submitbtn" id="bkbtn">Я отправил(а) заявку</button>
+          
           <div class="formhint">Заявка попадает в журнал оператора (Яндекс Таблица) с датой и временем отправки.</div>
         </div>
+        
         <div class="formcard" id="pauseCard" style="display:none">
           <div class="pause-emoji">🧶</div>
           <div class="pause-title">Набор временно приостановлен</div>
@@ -407,6 +425,7 @@
             <button type="button" class="ghostbtn" id="goComm" style="text-align:center">💬 Мои сообщества</button>
           </div>
         </div>
+        
         <aside class="bookaside reveal">
           <div class="aside-card docs">
             <h4>Документы для ознакомления</h4>
@@ -426,23 +445,11 @@
           </div>
         </aside>
       </div>
-      <div class="confirm" id="confirm">
-        <div class="record">
-          <div class="stampmark" id="bstamp">Заявка принята</div>
-          <h4>Ваша запись зарегистрирована</h4>
-          <div class="recrow"><span>№ заявки</span><span id="brecNo">—</span></div>
-          <div class="recrow"><span>Дата и время</span><span id="brecWhen">—</span></div>
-          <div class="recrow"><span>Статус</span><span style="color:var(--acc)">ОЖИДАЕТ ПОДТВЕРЖДЕНИЯ</span></div>
-        </div>
-        <p style="margin-bottom:20px;color:var(--soft);font-weight:600">Свяжусь с вами для подтверждения. Если планы изменятся — просто напишите мне.</p>
-        <div class="confirmbtns">
-          <button class="ghostbtn" id="againbtn">Записать ещё одного</button>
-          <button class="ghostbtn" id="tomainbtn">← На главную</button>
-        </div>
-      </div>
     </div>
   </main>
 </div>
+
+<!-- Админ-панель login -->
 <div class="modal-overlay" id="adminLoginModal">
   <div class="modal admin-login">
     <div class="modal-head">
@@ -459,6 +466,8 @@
     </div>
   </div>
 </div>
+
+<!-- Админ-панель main -->
 <div class="modal-overlay" id="adminPanelModal">
   <div class="modal">
     <div class="modal-head">
@@ -575,11 +584,13 @@
     </div>
   </div>
 </div>
+
 <div class="cookie" id="cookiebar">
   <p>🌿 Сайт использует cookie и локальное хранилище для работы форм и запоминания согласия.
   Подробности — в <a id="cookielink" href="#" target="_blank" rel="noopener">Политике конфиденциальности</a>.</p>
   <div class="cookiebtns"><button class="cookiebtn" id="cookieok">Понятно</button></div>
 </div>
+
 <script>
 (function(){
   var bar=document.getElementById('cookiebar');
@@ -590,6 +601,7 @@
   if(btn){btn.onclick=function(){try{window.localStorage.setItem('cookie-ok','1');}catch(e){}if(bar){bar.className='cookie';}};}
 })();
 </script>
+
 <footer>
   <div class="wrap">
     <div>
@@ -612,8 +624,10 @@
     </div>
   </div>
 </footer>
+
 <script>
 const CONSENT_KEY='pd-consent-v2';
+const BOOKING_KEY='pd-booking-sent-v2';
 const FALLBACK_ADMIN_CODE='anna2026';
 
 const DEFAULT_DATA = {
@@ -741,6 +755,7 @@ function renderAll(){
   renderDocs();
   renderBookAside();
   renderEnrollmentState();
+  restoreFormStates(); // ← ВАЖНО: восстанавливаем статусы форм при загрузке
 }
 
 function productCard(p){
@@ -818,15 +833,12 @@ function renderDocs(){
       <label class="doccheck"><input type="checkbox" class="docbox"><span class="box"></span>Ознакомлен(а)</label>
     </div>`).join('');
   const docBoxes=[...document.querySelectorAll('.docbox')];
-  const iframeWrap=byId('iframeWrap');
   function refreshDocs(){
     const n=docBoxes.filter(b=>b.checked).length;
     docBoxes.forEach(b=>b.closest('.docrow').classList.toggle('read',b.checked));
     byId('docnote').innerHTML=n===docBoxes.length
       ?'<b>Все документы отмечены ✓</b> — заполняйте форму согласия ниже ↓'
-      :`Отмечено <b>${n}</b> из ${DATA.documents.length} — отметьте все документы, чтобы открыть форму согласия`;
-    if(n===docBoxes.length){iframeWrap.classList.remove('iframe-locked');}
-    else{iframeWrap.classList.add('iframe-locked');}
+      :`Отмечено <b>${n}</b> из ${DATA.documents.length} — отметьте все документы, чтобы продолжить`;
   }
   docBoxes.forEach(b=>b.addEventListener('change',refreshDocs));
   refreshDocs();
@@ -855,6 +867,122 @@ function renderEnrollmentState(){
   renderTeachers();
 }
 
+/* ====== ЛОГИКА ВОССТАНОВЛЕНИЯ СТАТУСОВ ФОРМ (С ПОДДЕРЖКОЙ ОБНОВЛЕНИЯ) ====== */
+function restoreFormStates(){
+  // 1. Согласие
+  const consentGiven = !!lsGet(CONSENT_KEY);
+  const submitBtn = byId('submitbtn');
+  const openConsentBtn = byId('openConsentBtn'); 
+  const consentHint = byId('consentHint');
+  
+  if(submitBtn){
+    if(consentGiven){
+      // Меняем текст кнопки на "Обновить", а не прячем её полностью
+      submitBtn.textContent = '🔄 Обновить согласие / Ввести новый код';
+      submitBtn.classList.add('update-mode');
+      if(consentHint) consentHint.textContent = 'Вы уже давали согласие. Если ваши данные изменились, отправьте форму заново и введите новый код.';
+    } else {
+      submitBtn.textContent = '✅ Я отправил(а) форму — ввести код доступа →';
+      submitBtn.classList.remove('update-mode');
+      if(consentHint) consentHint.textContent = 'Форма откроется в новой вкладке. После отправки вернитесь сюда и нажмите кнопку ниже.';
+    }
+  }
+  
+  // Форма открытия всегда доступна
+  if(openConsentBtn){
+     openConsentBtn.innerHTML = consentGiven 
+       ? '📝 Открыть форму для ОБНОВЛЕНИЯ данных ↗' 
+       : '📝 Открыть форму согласия ↗';
+  }
+
+  // 2. Запись на занятия
+  const bookingSent = !!lsGet(BOOKING_KEY);
+  const bkBtn = byId('bkbtn');
+  const openBookingBtn = byId('openBookingBtn');
+  const bookingMsg = byId('bookingSuccessMsg');
+  const bookingHint = byId('bookingHint');
+
+  if(bkBtn && openBookingBtn){
+    if(bookingSent){
+      bkBtn.textContent = '🔄 Отправить новую заявку / Изменить запись';
+      bkBtn.classList.add('update-mode');
+      bkBtn.style.background = 'var(--sun)';
+      bkBtn.style.color = 'var(--deep)';
+      
+      openBookingBtn.innerHTML = '📅 Открыть форму записи (можно подать новую заявку) ↗';
+      if(bookingHint) bookingHint.textContent = 'Вы уже подавали заявку. Нажмите кнопку выше, чтобы изменить данные или записать еще одного ребенка.';
+      
+      if(bookingMsg) {
+        bookingMsg.style.display = 'block';
+        bookingMsg.innerHTML = `ℹ️ Вы уже подавали заявку из этого браузера.<br>
+          <small style="font-weight:400;color:var(--soft);display:block;margin-top:6px;">
+          Если хотите изменить время или добавить ребенка — нажмите кнопку выше.</small>`;
+      }
+    } else {
+      bkBtn.textContent = '✅ Я отправил(а) заявку';
+      bkBtn.classList.remove('update-mode');
+      bkBtn.style.background = 'var(--green)';
+      bkBtn.style.color = '#fff';
+      
+      openBookingBtn.innerHTML = '📅 Открыть форму записи ↗';
+      if(bookingHint) bookingHint.textContent = 'Заявка попадет мне на почту мгновенно.';
+      if(bookingMsg) bookingMsg.style.display = 'none';
+    }
+  }
+}
+
+// Обработчик клика по кнопке "Я отправил форму" (Согласие)
+byId('submitbtn').addEventListener('click',()=>{
+  byId('formerr').classList.remove('show');
+  const boxes=[...document.querySelectorAll('.docbox')];
+  
+  // Проверяем галочки только если это ПЕРВАЯ отправка
+  // Для повторной отправки (обновления) галочки можно не требовать заново, 
+  // но лучше пусть человек подтвердит ознакомление еще раз для надежности.
+  if(!boxes.every(b=>b.checked)){
+    byId('formerr').textContent='Сначала отметьте ознакомление со всеми документами выше.';
+    byId('formerr').classList.add('show');
+    return;
+  }
+  
+  // Показываем поле ввода кода
+  byId('codebox').style.display='block';
+  byId('codeinput').focus();
+});
+
+// Обработчик ввода кода (Согласие)
+byId('codebtn').addEventListener('click',()=>{
+  const v=(byId('codeinput').value||'').trim().toUpperCase();
+  if(v===String(DATA.accessCode).toUpperCase()){
+    
+    // Перезаписываем localStorage новым значением. 
+    // Старое удаляется автоматически при setItem с тем же ключом.
+    lsSet(CONSENT_KEY,JSON.stringify({at:nowStamp(),no:makeNo()}));
+    
+    grantAccess(true); // Открываем доступ
+    
+    // После успешного обновления скрываем блок ввода кода и меняем состояние кнопок обратно
+    byId('codebox').style.display='none';
+    restoreFormStates(); // Обновляем тексты кнопок
+    
+    alert('✅ Ваши данные обновлены! Доступ открыт.');
+  }else{
+    byId('codeerr').textContent='Неверный код. Код показывается на странице «Спасибо» после отправки формы.';
+    byId('codeerr').classList.add('show');
+  }
+});
+
+// Обработчик клика по кнопке "Я отправил заявку" (Запись)
+byId('bkbtn').addEventListener('click',()=>{
+  // Разрешаем повторную отправку, просто пишем новый флаг поверх старого
+  lsSet(BOOKING_KEY, JSON.stringify({at:nowStamp(), no:'BK-'+Date.now().toString(36)}));
+  
+  // Обновляем интерфейс
+  restoreFormStates();
+  
+  alert('✅ Новая заявка принята! Анна свяжется с вами.');
+});
+
 function grantAccess(animate){
   const rec=JSON.parse(lsGet(CONSENT_KEY)||'{}');
   const rl=byId('regline');
@@ -862,37 +990,28 @@ function grantAccess(animate){
   rl.innerHTML=`✅ Согласие № <b>${esc(rec.no||'—')}</b> от <b>${esc(rec.at||'—')}</b>`;
   byId('accessSection').style.display='block';
   byId('resetbtn').style.display='inline-block';
+  // Скрываем блок формы согласия, так как доступ уже открыт
+  const card = byId('consentCardBlock');
+  if(card) card.style.display = 'none';
   renderCommunities();
   if(animate){setTimeout(()=>byId('accessSection').scrollIntoView({behavior:'smooth',block:'start'}),200);}
 }
+
 function checkAccessOnLoad(){
   renderCommunities();
   if(lsGet(CONSENT_KEY)){grantAccess(false);}
 }
 
-byId('submitbtn').addEventListener('click',()=>{
-  byId('formerr').classList.remove('show');
-  const boxes=[...document.querySelectorAll('.docbox')];
-  if(!boxes.every(b=>b.checked)){
-    byId('formerr').textContent='Сначала отметьте ознакомление со всеми документами выше.';
-    byId('formerr').classList.add('show');
-    return;
-  }
-  byId('codebox').style.display='block';
-  byId('codeinput').focus();
+byId('resetbtn').addEventListener('click',()=>{
+  lsDel(CONSENT_KEY);
+  byId('accessSection').style.display='none';
+  const card = byId('consentCardBlock');
+  if(card) card.style.display = '';
+  renderCommunities();
+  location.reload();
 });
-byId('codebtn').addEventListener('click',()=>{
-  const v=(byId('codeinput').value||'').trim().toUpperCase();
-  if(v===String(DATA.accessCode).toUpperCase()){
-    lsSet(CONSENT_KEY,JSON.stringify({at:nowStamp(),no:makeNo()}));
-    grantAccess(true);
-  }else{
-    byId('codeerr').textContent='Неверный код. Код показывается на странице «Спасибо» после отправки формы.';
-    byId('codeerr').classList.add('show');
-  }
-});
-byId('resetbtn').addEventListener('click',()=>{lsDel(CONSENT_KEY);byId('accessSection').style.display='none';renderCommunities();location.reload();});
 
+/* ====== НАВИГАЦИЯ ====== */
 function показать(что){
   byId('view-main').style.display=что==='main'?'':'none';
   byId('view-book').style.display=что==='book'?'':'none';
@@ -905,7 +1024,8 @@ byId('floatingHomeBtn').addEventListener('click',()=>показать('main'));
 byId('goShop').addEventListener('click',()=>{показать('main');setTimeout(()=>byId('shopgrid').scrollIntoView({behavior:'smooth'}),60);});
 byId('goComm').addEventListener('click',()=>{показать('main');setTimeout(()=>byId('commSection').scrollIntoView({behavior:'smooth'}),60);});
 
-const floatingItems=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','✏️','📚','📖','','🎨','🌿','✨','🎯','💡','📌','','🌸'];
+/* ====== ФОНОВЫЕ ЭЛЕМЕНТЫ ====== */
+const floatingItems=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','✏️','📚','📖','','🎨','🌿','✨','🎯','','📌','',''];
 const colors=['#c94c7c','#f4c542','#4caf50','#2196f3','#9c27b0','#ff9800','#00bcd4','#e91e63','#3f51b5','#8bc34a'];
 function createFloatingItem(){
   const bg=document.getElementById('floatingBg');
@@ -924,14 +1044,17 @@ function createFloatingItem(){
 setInterval(createFloatingItem, 800);
 for(let i=0;i<15;i++) setTimeout(createFloatingItem, i*200);
 
+/* ====== REVEAL ANIMATION ====== */
 const revObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');revObs.unobserve(e.target);}});},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
 
+/* ====== МОДАЛЬНЫЕ ОКНА ====== */
 function openModal(id){byId(id).classList.add('show');document.body.style.overflow='hidden';}
 function closeModal(id){byId(id).classList.remove('show');document.body.style.overflow='';}
 document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>closeModal(b.dataset.close)));
 document.querySelectorAll('.modal-overlay').forEach(o=>o.addEventListener('click',e=>{if(e.target===o) closeModal(o.id);}));
 
+/* ====== АДМИН-ПАНЕЛЬ ====== */
 let adminAuth=false;
 byId('adminTrigger').addEventListener('click',()=>{
   if(adminAuth){ openAdminPanel(); }
@@ -1074,6 +1197,7 @@ byId('sReset').addEventListener('click', async ()=>{
   renderAll(); renderAdminLists(); loadAdminSettings(); renderEnrollmentAdmin(); if(ok) alert('Данные сброшены.');
 });
 
+/* ====== ИНИЦИАЛИЗАЦИЯ ====== */
 async function initApp(){
   DATA = await loadServerData();
   try{
@@ -1084,10 +1208,6 @@ async function initApp(){
   }catch(e){}
   renderAll();
   checkAccessOnLoad();
-  if(location.protocol==='file:'){
-    byId('consentFallback').classList.add('show');
-    byId('bookFallback').classList.add('show');
-  }
 }
 initApp();
 </script>
