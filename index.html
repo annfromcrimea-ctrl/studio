@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Студия изучения языков и развития Анны из Крыма</title>
-<meta name="description" content="Spotlight без слёз: подписки для родителей первоклашек. Пособия по английскому. Запись на занятия по иностранным языкам, логопедии и подготовке к школе. Оператор ПД · 152-ФЗ №91-26-057013 от 24.06.2026 №91-26-057013 от 24.06.2026.">
+<meta name="description" content="Spotlight без слёз: подписки для родителей первоклашек. Пособия по английскому. Запись на занятия по иностранным языкам, логопедии и подготовке к школе. Оператор ПД · 152-ФЗ №91-26-057013 от 24.06.2026.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='26' cy='32' r='9' fill='%23d6336c'/%3E%3Ccircle cx='38' cy='32' r='9' fill='%23d6336c'/%3E%3Ccircle cx='32' cy='43' r='9' fill='%23c2255c'/%3E%3Cpath d='M32 22c-2-6-8-8-12-6 2 4 6 6 12 6zm0 0c2-6 8-8 12-6-2 4-6 6-12 6z' fill='%237fb069'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -595,7 +595,7 @@
     <div>
       <h5>Оператор персональных данных</h5>
       <p id="footerOp"></p>
-      <button class="resetbtn" id="resetbtn" style="display:none">↺ сбросить сохранённое согласие (для проверки)</button>
+      <button class="resetbtn" id="resetbtn" style="display:inline-block">↺ сбросить сохранённое согласие (для проверки)</button>
     </div>
     <div>
       <h5>Как это работает</h5>
@@ -621,7 +621,7 @@ const DEFAULT_DATA = {
   inn:"910509806683",
   email:"annfromcrimea@mail.ru",
   address:"Республика Крым",
-  accessCode:"anna2026",
+   accessCode:"anna2026",
   adminCode:"Raspberry1994!",
   photo:"photo1.jpg",
   founderText:"Основатель студии. Педагог по образованию. Магистр филологии. Запись на занятия по иностранным языкам, логопедии и подготовке к школе.",
@@ -861,13 +861,15 @@ function grantAccess(animate){
   rl.style.display='inline-flex';
   rl.innerHTML=`✅ Согласие № <b>${esc(rec.no||'—')}</b> от <b>${esc(rec.at||'—')}</b>`;
   byId('accessSection').style.display='block';
-  byId('resetbtn').style.display='inline-block';
   renderCommunities();
   if(animate){setTimeout(()=>byId('accessSection').scrollIntoView({behavior:'smooth',block:'start'}),200);}
 }
 function checkAccessOnLoad(){
   renderCommunities();
-  if(lsGet(CONSENT_KEY)){grantAccess(false);}
+  // доступ открывается только если в localStorage есть запись с номером согласия (no)
+  let rec=null;
+  try{rec=JSON.parse(lsGet(CONSENT_KEY)||'null');}catch(e){rec=null;}
+  if(rec && rec.no){grantAccess(false);}
 }
 
 byId('submitbtn').addEventListener('click',()=>{
@@ -1076,18 +1078,8 @@ byId('sReset').addEventListener('click', async ()=>{
 
 async function initApp(){
   DATA = await loadServerData();
-  try{
-    const p=new URLSearchParams(location.search).get('access');
-    if(p && p.trim().toUpperCase()===String(DATA.accessCode).toUpperCase() && !lsGet(CONSENT_KEY)){
-      lsSet(CONSENT_KEY,JSON.stringify({at:nowStamp(),no:makeNo()}));
-    }
-  }catch(e){}
   renderAll();
   checkAccessOnLoad();
-  if(location.protocol==='file:'){
-    byId('consentFallback').classList.add('show');
-    byId('bookFallback').classList.add('show');
-  }
 }
 initApp();
 </script>
