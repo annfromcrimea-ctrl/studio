@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Студия изучения языков и развития Анны из Крыма</title>
 <meta name="description" content="Spotlight без слёз: подписки для родителей первоклашек. Пособия по английскому. Запись на занятия по иностранным языкам, логопедии и подготовке к школе. Оператор ПД · 152-ФЗ №91-26-057013 от 24.06.2026.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='26' cy='32' r='9' fill='%23d6336c'/%3E%3Ccircle cx='38' cy='32' r='9' fill='%23d6336c'/%3E%3Ccircle cx='32' cy='43' r='9' fill='%23c2255c'/%3E%3Cpath d='M32 22c-2-6-8-8-12-6 2 4 6 6 12 6zm0 0c2-6 8-8 12-6-2 4-6 6-12 6z' fill='%237fb069'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Ccircle cx=%2726%27 cy=%2732%27 r=%279%27 fill=%27%23d6336c%27/%3E%3Ccircle cx=%2738%27 cy=%2732%27 r=%279%27 fill=%27%23d6336c%27/%3E%3Ccircle cx=%2732%27 cy=%2743%27 r=%279%27 fill=%27%23c2255c%27/%3E%3Cpath d=%27M32 22c-2-6-8-8-12-6 2 4 6 6 12 6zm0 0c2-6 8-8 12-6-2 4-6 6-12 6z%27 fill=%27%237fb069%27/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Nunito:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -116,7 +116,7 @@
   .iframe-fallback a{display:inline-block;font-family:var(--mono);font-size:13px;font-weight:700;color:#fff;background:var(--acc);padding:13px 26px;border-radius:999px;text-decoration:none;box-shadow:0 8px 20px rgba(214,51,108,.35)}
   .iframe-fallback a:hover{background:var(--deep)}
   .iframe-locked{position:relative}
-  .iframe-locked::after{content:'🔒 Отметьте документы выше, чтобы открыть форму';
+  .iframe-locked::after{content:'🔒 Отметьте документы 01 и 02 (политика и согласие на обработку ПД), чтобы открыть форму';
     position:absolute;inset:0;background:rgba(253,249,244,.92);display:grid;place-items:center;
     font-family:var(--mono);font-size:13px;color:var(--deep);text-align:center;padding:20px;border-radius:16px;font-weight:700;z-index:2}
   .iframe-locked iframe{pointer-events:none;filter:blur(4px) grayscale(.5);opacity:.4}
@@ -615,6 +615,11 @@
 <script>
 const CONSENT_KEY='pd-consent-v2';
 const FALLBACK_ADMIN_CODE='Raspberry1994!';
+/* Индексы обязательных документов в массиве DATA.documents (с нуля):
+   0 = Политика конфиденциальности, 1 = Согласие на обработку ПД.
+   Без их отметки форма согласия закрыта. Документы 03–05 (рассылки, отзывы, оферта)
+   добровольные и на доступ не влияют (152-ФЗ, рекомендации ФАС/РКН). */
+const REQUIRED_DOC_IDX=[0,1];
 
 const DEFAULT_DATA = {
   name:"Драчёва Анна Игоревна",
@@ -821,11 +826,14 @@ function renderDocs(){
   const iframeWrap=byId('iframeWrap');
   function refreshDocs(){
     const n=docBoxes.filter(b=>b.checked).length;
+    const reqOk=REQUIRED_DOC_IDX.every(i=>docBoxes[i]&&docBoxes[i].checked);
     docBoxes.forEach(b=>b.closest('.docrow').classList.toggle('read',b.checked));
     byId('docnote').innerHTML=n===docBoxes.length
       ?'<b>Все документы отмечены ✓</b> — заполняйте форму согласия ниже ↓'
-      :`Отмечено <b>${n}</b> из ${DATA.documents.length} — отметьте все документы, чтобы открыть форму согласия`;
-    if(n===docBoxes.length){iframeWrap.classList.remove('iframe-locked');}
+      :(reqOk
+        ?'<b>Обязательные документы (01 и 02) отмечены ✓</b> — форма открыта, остальные документы по желанию ↓'
+        :`Отмечено <b>${n}</b> из ${DATA.documents.length}: чтобы открыть форму согласия, отметьте документы <b>01</b> и <b>02</b> (политика и согласие на обработку ПД) — остальные по желанию`);
+    if(reqOk){iframeWrap.classList.remove('iframe-locked');}
     else{iframeWrap.classList.add('iframe-locked');}
   }
   docBoxes.forEach(b=>b.addEventListener('change',refreshDocs));
@@ -875,8 +883,9 @@ function checkAccessOnLoad(){
 byId('submitbtn').addEventListener('click',()=>{
   byId('formerr').classList.remove('show');
   const boxes=[...document.querySelectorAll('.docbox')];
-  if(!boxes.every(b=>b.checked)){
-    byId('formerr').textContent='Сначала отметьте ознакомление со всеми документами выше.';
+  const reqOk=REQUIRED_DOC_IDX.every(i=>boxes[i]&&boxes[i].checked);
+  if(!reqOk){
+    byId('formerr').textContent='Сначала отметьте обязательные документы: 01 (политика) и 02 (согласие на обработку ПД). Остальные — по желанию.';
     byId('formerr').classList.add('show');
     return;
   }
