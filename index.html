@@ -48,20 +48,20 @@
   @keyframes blob{0%{transform:scale(1) rotate(0)}100%{transform:scale(1.04) rotate(2deg)}}
   .avatarwrap img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
   .herobadge{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--soft);font-family:var(--mono);font-size:9px;letter-spacing:.05em;text-transform:uppercase;padding:5px 10px;border-radius:999px;box-shadow:var(--shadow)}
-  .founder{margin-top:8px;font-size:12.5px;color:var(--soft);font-weight:600;line-height:1.45;max-width:320px;margin-left:auto;margin-right:auto}
   h1{font-family:var(--disp);font-weight:700;font-size:clamp(24px,3.8vw,36px);line-height:1.15;margin-bottom:10px;color:var(--deep)}
   h1 .accent-name{color:var(--acc)}
-  .lead{font-size:15px;color:var(--soft);max-width:640px;margin-bottom:12px}
+  .lead{font-size:15px;color:var(--soft);max-width:640px;margin-bottom:8px}
+  .personal-link{display:inline-block;font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--acc);text-decoration:none;border-bottom:1px dashed var(--acc2);padding-bottom:2px;margin-bottom:12px;transition:all .2s}
+  .personal-link:hover{color:var(--deep);border-color:var(--deep)}
   
-  /* Новые аккуратные пункты вместо смайликов */
-  .feature-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:12px}
+  .feature-list{list-style:none;display:flex;flex-direction:column;gap:6px;margin-top:12px}
   .feature-list li{font-size:13.5px;color:var(--ink);font-weight:600;padding-left:20px;position:relative;line-height:1.45}
   .feature-list li::before{content:'';position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:var(--acc)}
 
   /* ОБЩИЕ БЛОКИ */
   .block{padding:8px 0;border-bottom:1px solid var(--line)}
   .block:last-child{border-bottom:none}
-  .blockhead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:10px;justify-content:center;text-align:center}
+  .blockhead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:8px;justify-content:center;text-align:center}
   .blockhead h2{font-family:var(--disp);font-weight:700;font-size:clamp(18px,2.4vw,23px);color:var(--deep)}
   .blocksub{font-family:var(--mono);font-size:10px;letter-spacing:.05em;color:var(--soft)}
 
@@ -193,30 +193,30 @@
   .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
   .reveal.vis{opacity:1;transform:none}
 
-  /* ОТЗЫВЫ (сетка без прокрутки) */
-  .reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;justify-content:center}
-  .review-card{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:14px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px}
-  .review-card .rev-head{display:flex;align-items:center;gap:8px}
-  .review-card .rev-avatar{width:32px;height:32px;border-radius:50%;background:var(--acc2);color:var(--deep);display:grid;place-items:center;font-weight:700;font-size:13px;flex-shrink:0}
-  .review-card .rev-name{font-weight:700;font-size:13px;color:var(--deep)}
-  .review-card .rev-stars{color:var(--sun);font-size:10px}
-  .review-card .rev-text{font-size:12.5px;color:var(--soft);font-weight:600;line-height:1.5;flex:1;min-height:50px}
-  .review-card .rev-toggle{display:flex;gap:4px;margin-bottom:2px}
-  .review-card .rev-toggle button{font-family:var(--mono);font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border:1.5px solid var(--line);border-radius:999px;background:#fff;color:var(--soft);cursor:pointer;transition:all .2s;font-weight:700}
+  /* ОТЗЫВЫ И ВИДЕО (всегда в одну строку по центру) */
+  .media-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;padding:4px 0}
+  .review-card{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:12px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:6px;flex:1;min-width:200px;max-width:260px}
+  .review-card .rev-head{display:flex;align-items:center;gap:6px}
+  .review-card .rev-avatar{width:28px;height:28px;border-radius:50%;background:var(--acc2);color:var(--deep);display:grid;place-items:center;font-weight:700;font-size:12px;flex-shrink:0}
+  .review-card .rev-name{font-weight:700;font-size:12px;color:var(--deep)}
+  .review-card .rev-stars{color:var(--sun);font-size:9px}
+  .review-card .rev-text{font-size:11.5px;color:var(--soft);font-weight:600;line-height:1.45;flex:1;min-height:44px}
+  .review-card .rev-toggle{display:flex;gap:3px;margin-bottom:1px}
+  .review-card .rev-toggle button{font-family:var(--mono);font-size:8px;letter-spacing:.05em;text-transform:uppercase;padding:2px 6px;border:1.5px solid var(--line);border-radius:999px;background:#fff;color:var(--soft);cursor:pointer;transition:all .2s;font-weight:700}
   .review-card .rev-toggle button.active{background:var(--acc);border-color:var(--acc);color:#fff}
   .review-card .rev-toggle button:hover:not(.active){border-color:var(--acc2)}
 
-  /* ВИДЕО (сетка без прокрутки) */
-  .video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;justify-content:center}
-  .video-card{background:#fff;border:1px solid #efe6da;border-radius:12px;padding:10px;box-shadow:0 2px 8px rgba(166,19,88,.03)}
-  .vid-preview{aspect-ratio:16/9;background:linear-gradient(135deg,var(--acc) 0%,var(--deep) 100%);border-radius:6px;margin-bottom:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.2rem;position:relative;overflow:hidden;cursor:pointer}
+  .video-card{width:200px;background:#fff;border:1px solid #efe6da;border-radius:12px;padding:8px;box-shadow:0 2px 8px rgba(166,19,88,.03);flex-shrink:0}
+  .vid-preview{aspect-ratio:16/9;background:linear-gradient(135deg,var(--acc) 0%,var(--deep) 100%);border-radius:6px;margin-bottom:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.2rem;position:relative;overflow:hidden;cursor:pointer}
   .vid-preview .play-icon{opacity:.9;transition:.2s}
   .vid-preview:hover .play-icon{opacity:1;transform:scale(1.15)}
-  .vid-title{font-weight:700;font-size:12px;margin-bottom:2px;color:var(--deep)}
-  .vid-meta{font-size:9.5px;color:#888}
+  .vid-title{font-weight:700;font-size:11.5px;margin-bottom:2px;color:var(--deep)}
+  .vid-meta{font-size:9px;color:#888}
 
   /* ДИАГНОСТИКА */
-  .diag-intro{font-size:13px;color:var(--soft);font-weight:600;margin-bottom:14px;text-align:center;max-width:700px;margin-left:auto;margin-right:auto;line-height:1.5}
+  .diag-wrap{background:#fff;border:1.5px solid var(--line);border-radius:var(--r);padding:20px;box-shadow:var(--shadow);margin-top:10px}
+  .diag-intro{font-size:13px;color:var(--soft);font-weight:600;text-align:center;margin-bottom:14px;line-height:1.5;max-width:700px;margin-left:auto;margin-right:auto}
+  .diag-intro b{color:var(--deep)}
   .diag-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;justify-content:center}
   .diag-card{border:1.5px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;height:100%;transition:all .2s;background:#fff;position:relative;overflow:hidden}
   .diag-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--acc2) 0%,var(--acc) 100%);transform:scaleY(0);transition:transform .2s}
@@ -244,6 +244,8 @@
     .consent-layout{grid-template-columns:1fr}
     .bookgrid.has-side{grid-template-columns:1fr}
     .homebtn{top:12px;left:12px;font-size:10px;padding:6px 12px}
+    .media-row{flex-direction:column;align-items:center}
+    .review-card,.video-card{width:100%;max-width:400px}
     .bigbanner{margin:0}
   }
 </style>
@@ -262,33 +264,31 @@
         <h1>Студия изучения языков и развития <span class="accent-name">Анны из Крыма</span></h1>
         <p class="lead" id="mastLead"></p>
         <ul class="feature-list" id="featureList"></ul>
+        <a class="personal-link" href="https://аннаизкрыма.рф" target="_blank" rel="noopener" style="margin-top:12px; margin-bottom:0">🔗 Личная запись и продукты →</a>
       </div>
     </div>
   </header>
   
   <section class="block">
     <div class="wrap">
-      <div class="shopgrid reveal" id="shopgrid" style="margin-top:16px"></div>
+      <div class="shopgrid reveal" id="shopgrid"></div>
       <p class="shopnote" id="shopNote"></p>
     </div>
   </section>
   
   <section class="block" id="teamSection" style="display:none">
     <div class="wrap">
-      <div class="teamgrid" id="teamgrid"></div>
+      <div class="teamgrid" id="teamgrid" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center"></div>
     </div>
   </section>
   
   <section class="block">
     <div class="wrap">
       <div class="consent-layout reveal">
-        <!-- Левая колонка: Документы -->
         <div>
           <div class="doclist" id="doclist"></div>
           <div class="docnote" id="docnote"></div>
         </div>
-        
-        <!-- Правая колонка: Форма -->
         <div class="consentcard">
           <p class="consent-lead"><b>Почему нужна форма?</b> По закону «О персональных данных» (152-ФЗ) я могу открыть
           вам доступ к закрытым материалам только после вашего официального согласия.</p>
@@ -312,7 +312,7 @@
   
   <section class="block" id="accessSection" style="display:none">
     <div class="wrap">
-      <div class="regline" id="regline"></div>
+      <div class="regline" id="regline" style="margin-bottom:12px"></div>
       <div class="shopgrid" id="subgrid"></div>
       <p class="shopnote" id="subNote"></p>
     </div>
@@ -330,23 +330,22 @@
   
   <section class="block" id="reviewsSection">
     <div class="wrap">
-      <div class="reviews-grid" id="reviewsGrid"></div>
+      <div class="media-row" id="reviewsGrid"></div>
     </div>
   </section>
   
   <section class="block" id="videoSection">
     <div class="wrap">
-      <div class="video-grid" id="videoGrid"></div>
+      <div class="media-row" id="videoGrid"></div>
     </div>
   </section>
 </div>
 <div id="view-book" style="display:none">
-  <header class="masthead">
+  <header class="masthead" style="padding-bottom:0">
     <div class="wrap" style="grid-template-columns:1fr; text-align:center">
       <div>
-        <span class="herobadge" style="margin-bottom:8px">Запись на занятия</span>
-        <h1 style="margin-top:8px">Выберите <span class="accent-name">удобное время</span></h1>
-        <p class="lead" id="bookLead" style="max-width:860px; margin:0 auto"></p>
+        <h1 style="margin-bottom:6px">Запись <span class="accent-name">на занятия</span></h1>
+        <p class="lead" style="max-width:860px; margin:0 auto 10px">Индивидуальные онлайн-уроки по иностранным языкам, логопедии и подготовке к школе. Опытный преподаватель, гибкий график, программа под вашего ребёнка.</p>
       </div>
     </div>
   </header>
@@ -377,13 +376,10 @@
         </div>
         
         <div id="bookTeachersWrapper" style="display:none">
-          <div style="margin-top:20px; margin-bottom:10px;">
-             <h2 style="font-family:var(--disp); font-weight:700; color:var(--deep); font-size:18px">Мои занятия</h2>
-             <p style="font-size:13px; color:var(--soft); font-weight:600; margin-top:4px; line-height:1.45">
-                Каждое занятие строится индивидуально под ваш уровень и темп. Мы разберём сложные темы, поработаем над произношением и уверенностью в себе.
-             </p>
+          <div class="blockhead reveal" style="margin-top:16px; justify-content:flex-start; text-align:left">
+            <h2>Преподаватели</h2>
           </div>
-          <div class="teamgrid" id="bookTeamGrid"></div>
+          <div class="teamgrid" id="bookTeamGrid" style="display:flex; flex-wrap:wrap; gap:14px; justify-content:center"></div>
         </div>
       </div>
       
@@ -403,11 +399,13 @@
       </div>
       
       <div style="margin-top:24px">
-        <div class="blockhead reveal">
-          <h2>Диагностика уровня знаний</h2>
+        <div class="blockhead reveal" style="margin-bottom:8px">
+          <h2>Диагностика знаний</h2>
         </div>
-        <p class="diag-intro">Не знаете, с чего начать? Пройдите экспресс-тест. Он займёт всего 5–10 минут и поможет определить текущий уровень знаний, выявить пробелы и подобрать подходящую программу обучения. Результат вы увидите сразу после прохождения.</p>
-        <div class="diag-grid" id="diagGrid"></div>
+        <div class="diag-wrap">
+          <p class="diag-intro">Пройдите <b>бесплатный экспресс-тест</b> за 5–10 минут. Он поможет определить текущий уровень знаний, выявить пробелы и подобрать подходящую программу обучения. Результат вы увидите сразу после прохождения.</p>
+          <div class="diag-grid" id="diagGrid"></div>
+        </div>
       </div>
     </div>
   </main>
@@ -462,16 +460,15 @@ const DEFAULT_DATA = {
   address:"Республика Крым",
   accessCode:"anna2026",
   photo:"photo1.jpg",
-  founderText:"",
   enrollmentPaused:true,
   pauseText:"Набор на занятия временно приостановлен. Загляните в сообщества — там новости и материалы!",
   previewText:"Я — Анна, преподаватель из Крыма. Помогаю родителям и младшим школьникам пройти Spotlight без слёз и репетиторов, а ещё здесь можно записаться на занятия по иностранным языкам, логопедии и подготовке к школе.",
   featureList: [
-    { text: "Голосовые пояснения к урокам Spotlight" },
-    { text: "Материалы для печати и работы дома" },
-    { text: "Советы как поддерживать без давления" },
-    { text: "Разбор сложных тем из учебника" },
-    { text: "Методическая помощь от преподавателя" }
+    { emoji: "✨", text: "Голосовые пояснения к урокам Spotlight" },
+    { emoji: "📚", text: "Материалы для печати и работы дома" },
+    { emoji: "🌿", text: "Советы как поддерживать без давления" },
+    { emoji: "💡", text: "Разбор сложных тем из учебника" },
+    { emoji: "🎯", text: "Методическая помощь от преподавателя" }
   ],
   documents:[
     { название:"Политика конфиденциальности", пояснение:"обновлена 04.09.2026", ссылка:"https://disk.yandex.ru/i/PLJkomvneJvQgA" },
@@ -513,8 +510,7 @@ const DEFAULT_DATA = {
     { title:"Разбор типичных ошибок", meta:"English · 2 мин" },
     { title:"Живая речь: диалог", meta:"Deutsch · 3 мин" },
     { title:"Методика обучения детей", meta:"Общее · 5 мин" },
-    { title:"Как проходит пробный урок", meta:"Общее · 2 мин" },
-    { title:"Отзыв ученицы: до и после", meta:"Отзыв · 1 мин" }
+    { title:"Как проходит пробный урок", meta:"Общее · 2 мин" }
   ],
   diagnostics:[
     { flag:"🇬🇧", name:"English", desc:"Грамматика, лексика, понимание речи (A1–C1).", link:"https://annfromcrimea-ctrl.github.io/personal/english-test.html" },
@@ -582,13 +578,13 @@ function renderProducts(){
   const hasConsent=!!lsGet(CONSENT_KEY);
   byId('shopgrid').innerHTML=DATA.products.filter(p=>(p.type||'').toUpperCase()==='ПОСОБИЕ').map(p=>productCard(p,true)).join('');
   byId('shopNote').innerHTML=DATA.ofertaUrl
-    ?`<b>Пособия</b> — разовая покупка по ссылке. Оплата по <a href="${esc(DATA.ofertaUrl)}" target="_blank" rel="noopener">договору-оферте</a>. Подписки открываются после согласия.`
-    :`<b>Пособия</b> — разовая покупка по ссылке. Подписки открываются после согласия.`;
+    ?`Оплата по <a href="${esc(DATA.ofertaUrl)}" target="_blank" rel="noopener">договору-оферте</a>. Подписки открываются после согласия.`
+    :`Подписки открываются после согласия.`;
   
   const subgrid = byId('subgrid');
   if (subgrid) {
     subgrid.innerHTML=DATA.products.filter(p=>(p.type||'').toUpperCase()==='ПОДПИСКА').map(p=>productCard(p,hasConsent)).join('');
-    byId('subNote').innerHTML=`<b>Подписки</b> продлеваются автоматически каждую неделю; отменить можно в любой момент в личном кабинете Robokassa. Вопросы: <a href="mailto:${esc(DATA.email)}">${esc(DATA.email)}</a>.`;
+    byId('subNote').innerHTML=`Подписки продлеваются автоматически. Отменить можно в кабинете Robokassa. Вопросы: <a href="mailto:${esc(DATA.email)}">${esc(DATA.email)}</a>.`;
   }
 }
 
@@ -661,7 +657,7 @@ function renderDocs(){
     byId('docnote').innerHTML=n===docBoxes.length
       ?'<b>Все документы отмечены ✓</b> — заполняйте форму согласия'
       :(reqOk
-        ?'<b>Обязательные документы (01 и 02) отмечены ✓</b> — форма открыта, остальные по желанию'
+        ?'<b>Обязательные документы (01 и 02) отмечены ✓</b> — форма открыта'
         :`Отмечено <b>${n}</b> из ${DATA.documents.length}: чтобы открыть форму, отметьте <b>01</b> и <b>02</b>`);
     if(reqOk){
       iframeWrap.classList.remove('iframe-locked');
